@@ -1,6 +1,6 @@
-## About the icon .svg files on this folder
+## About the .svg files on the folder 'icons'
 
-The rounded country flag icons on this folder were made by [FreePik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/) and used according to its [Terms of Use](https://www.freepikcompany.com/legal#nav-flaticon).
+The rounded country flag icons were made by [FreePik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/) and used according to its [Terms of Use](https://www.freepikcompany.com/legal#nav-flaticon).
 
 The 'World' icon was made by [turkkub](https://www.flaticon.com/authors/turkkub) also from [www.flaticon.com](https://www.flaticon.com/) and used according to the same [terms](https://www.freepikcompany.com/legal#nav-flaticon). 
 
