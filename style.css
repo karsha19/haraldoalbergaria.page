@@ -36,7 +36,7 @@ a:hover {
   height: 0px;
   font-size: 80px;
   font-family: Arial;
-  top: 150px;
+  top: 120px;
   color: white;
   text-shadow: 3px 3px 6px black;
   z-index: 1;
@@ -47,7 +47,7 @@ a:hover {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
   height: 0px;
-  bottom: 350px;
+  bottom: 250px;
   z-index: 1;
 }
 
@@ -59,7 +59,7 @@ a:hover {
   text-align: left;
   bottom: 20px;
   color: lightgrey;
-  margin-left: 10px;
+  margin-left: 20px;
   z-index: 1;
 }
 
