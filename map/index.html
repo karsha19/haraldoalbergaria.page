@@ -2,8 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Haraldo Albergaria | Photos Map</title>
-<link rel="shortcut icon" type="image/x-icon" href="../icons/favicon.ico">
+<title>Haraldo Albergaria's Photos Map</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
@@ -69,7 +68,7 @@ a:hover {
 }
 
 </style>
-
+ 
 <div id="map"></div>
 <div id="menu">
 <input id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked" />
@@ -94,9 +93,9 @@ a:hover {
 <div class="attribution">
     Icons made by <a href="https://www.flaticon.com/authors/turkkub" title="turkkub">turkkub</a> (World) and <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> (Countries) from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
 </div>
-
+	
 <script>
-
+	
     mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -104,23 +103,23 @@ a:hover {
         center: [-40, 15],
         zoom: 2
     });
-
+	
     map.addControl(new mapboxgl.NavigationControl());
 
     var layerList = document.getElementById('menu');
     var inputs = layerList.getElementsByTagName('input');
-
+ 
     function switchLayer(layer) {
         var layerId = layer.target.id;
         map.setStyle('mapbox://styles/mapbox/' + layerId);
     }
-
+ 
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].onclick = switchLayer;
     }
-
+    
 	var locations = getLocations();
-
+	
 	locations.forEach(addMarker);
 
     function addMarker(value) {
@@ -132,62 +131,62 @@ a:hover {
 
     function showWorld() {
 	    map.flyTo({
-		    center: [-40, 15],
+		    center: [-40, 15], 
 			zoom: 1.8
 		});
 	}
-
+	
 	function flyToBrazil() {
 	    map.flyTo({
-		    center: [-47.942175, -15.720065],
+		    center: [-47.942175, -15.720065], 
 			zoom: 3.5
 		});
 	}
-
+	
 	function flyToUSA() {
 	    map.flyTo({
-		    center: [-98.353336, 38.001705],
+		    center: [-98.353336, 38.001705], 
 			zoom: 3.5
 		});
 	}
-
+	
 	function flyToArgentina() {
 	    map.flyTo({
-		    center: [-54.514142, -25.632677],
+		    center: [-54.514142, -25.632677], 
 			zoom: 11.0
 		});
 	}
-
+	
 	function flyToParaguay() {
 	    map.flyTo({
-		    center: [-54.593004, -25.410668],
+		    center: [-54.593004, -25.410668], 
 			zoom: 15.0
 		});
 	}
-
+	
 	function flyToItaly() {
 	    map.flyTo({
-		    center: [13.663935, 41.369012],
+		    center: [13.663935, 41.369012], 
 			zoom: 6.7
 		});
 	}
-
+	
 	function flyToVatican() {
 	    map.flyTo({
-		    center: [12.452778, 41.904047],
+		    center: [12.452778, 41.904047], 
 			zoom: 15.5
 		});
 	}
-
+	
 	function flyToCroatia() {
 	    map.flyTo({
-		    center: [16.494044, 44.39349],
+		    center: [16.494044, 44.39349], 
 			zoom: 6.3
 		});
 	}
 
 	function getLocations() {
-
+	
         var locations = [];
         locations.push([[12.453936, 41.906221], "<a href=\"https://www.flickr.com/photos/hpfilho/49687632177\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49687632177_edb5a6783c_s.jpg\"/></a> "]);
         locations.push([[12.453761, 41.906555], "<a href=\"https://www.flickr.com/photos/hpfilho/49686873401\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49686873401_ef5b2a64d8_s.jpg\"/></a> "]);
@@ -243,6 +242,7 @@ a:hover {
         locations.push([[12.487850, 41.891172], "<a href=\"https://www.flickr.com/photos/hpfilho/49585467098\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49585467098_be8a6027b6_s.jpg\"/></a> "]);
         locations.push([[12.488502, 41.890797], "<a href=\"https://www.flickr.com/photos/hpfilho/49585734557\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49585734557_34e67d9ef7_s.jpg\"/></a> "]);
         locations.push([[12.487966, 41.890397], "<a href=\"https://www.flickr.com/photos/hpfilho/49585470476\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49585470476_629611e3da_s.jpg\"/></a> "]);
+        locations.push([[12.488119, 41.888138], "<a href=\"https://www.flickr.com/photos/hpfilho/49583914658\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49583914658_22f1b4c394_s.jpg\"/></a> "]);
         locations.push([[12.488172, 41.888111], "<a href=\"https://www.flickr.com/photos/hpfilho/49583932173\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49583932173_1fb27c1713_s.jpg\"/></a> "]);
         locations.push([[12.485941, 41.891752], "<a href=\"https://www.flickr.com/photos/hpfilho/49583597528\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49583597528_dd2a50ee97_s.jpg\"/></a> "]);
         locations.push([[12.485772, 41.891536], "<a href=\"https://www.flickr.com/photos/hpfilho/49584336132\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49584336132_e306b6df58_s.jpg\"/></a> "]);
@@ -353,7 +353,7 @@ a:hover {
         locations.push([[15.854619, 43.721663], "<a href=\"https://www.flickr.com/photos/hpfilho/49273993562\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49273993562_d9c5cc545a_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49268823053\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49268823053_da1cefa825_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49268857448\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49268857448_8b87de02b1_s.jpg\"/></a> "]);
         locations.push([[15.854474, 43.721927], "<a href=\"https://www.flickr.com/photos/hpfilho/49268819833\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49268819833_bd43e2baaa_s.jpg\"/></a> "]);
         locations.push([[15.854838, 43.721597], "<a href=\"https://www.flickr.com/photos/hpfilho/49269291421\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49269291421_7f49cac84f_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49269304281\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49269304281_490bc9a913_s.jpg\"/></a> "]);
-        locations.push([[15.854569, 43.722316], "<a href=\"https://www.flickr.com/photos/hpfilho/49252810693\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49252810693_7fc6a6c7b4_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49252813188\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49252813188_fbf8e7f730_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49253496622\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49253496622_3d36537a06_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49253503642\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49253503642_867fc1a1d2_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49253560792\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49253560792_1f15fe1fbd_s.jpg\"/></a> "]);
+        locations.push([[15.854676, 43.721505], "<a href=\"https://www.flickr.com/photos/hpfilho/49252810693\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49252810693_7fc6a6c7b4_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49252813188\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49252813188_fbf8e7f730_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49253496622\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49253496622_3d36537a06_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49253503642\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49253503642_867fc1a1d2_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/49253560792\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49253560792_1f15fe1fbd_s.jpg\"/></a> "]);
         locations.push([[15.853652, 43.721655], "<a href=\"https://www.flickr.com/photos/hpfilho/49250476611\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49250476611_76e3d95970_s.jpg\"/></a> "]);
         locations.push([[15.857652, 43.724188], "<a href=\"https://www.flickr.com/photos/hpfilho/49240823607\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49240823607_ea9f6a077c_s.jpg\"/></a> "]);
         locations.push([[15.891383, 43.734200], "<a href=\"https://www.flickr.com/photos/hpfilho/49240171631\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49240171631_9bd2db03c2_s.jpg\"/></a> "]);
@@ -520,7 +520,7 @@ a:hover {
         locations.push([[-32.411114, -3.841753], "<a href=\"https://www.flickr.com/photos/hpfilho/46005328601\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4906/46005328601_a04a6d98da_s.jpg\"/></a> "]);
         locations.push([[-32.410675, -3.840481], "<a href=\"https://www.flickr.com/photos/hpfilho/31066222237\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4892/31066222237_4ba17f1ca2_s.jpg\"/></a> "]);
         locations.push([[-32.410862, -3.840964], "<a href=\"https://www.flickr.com/photos/hpfilho/45280493924\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4808/45280493924_aea0fdf546_s.jpg\"/></a> "]);
-        locations.push([[-32.400259, -3.834767], "<a href=\"https://www.flickr.com/photos/hpfilho/45252315064\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4874/45252315064_37de381e0b_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/45049157075\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4837/45049157075_070a38221c_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/32067339878\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4897/32067339878_cb086f34a9_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/45026255525\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4873/45026255525_9b51c94b75_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/32066915458\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4914/32066915458_04fff874de_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/45937648351\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4886/45937648351_66a6fc5173_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/45212787114\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4807/45212787114_c51540ddae_s.jpg\"/></a> "]);
+        locations.push([[-32.400259, -3.834767], "<a href=\"https://www.flickr.com/photos/hpfilho/45252315064\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4874/45252315064_37de381e0b_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/45049157075\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4837/45049157075_070a38221c_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/32067339878\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4897/32067339878_cb086f34a9_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/45026255525\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4873/45026255525_9b51c94b75_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/32066915458\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4914/32066915458_04fff874de_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/45937648351\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4886/45937648351_66a6fc5173_s.jpg\"/></a> "]);
         locations.push([[-32.400456, -3.834848], "<a href=\"https://www.flickr.com/photos/hpfilho/31037569987\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4917/31037569987_1790f75643_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/32090423288\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4910/32090423288_b038ff7f8b_s.jpg\"/></a> "]);
         locations.push([[-32.442162, -3.852092], "<a href=\"https://www.flickr.com/photos/hpfilho/30991630947\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4879/30991630947_bccf6eda2d_s.jpg\"/></a> "]);
         locations.push([[-32.442184, -3.852956], "<a href=\"https://www.flickr.com/photos/hpfilho/32055700068\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4857/32055700068_89b14b9552_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/32054715468\" target=\"_blank\"><img src=\"https://live.staticflickr.com/4891/32054715468_d83d6c53e5_s.jpg\"/></a> "]);
@@ -730,19 +730,19 @@ a:hover {
 
 <!-- Default Statcounter code for photo website https://haraldo-albergaria.photos/ -->
 <script type="text/javascript">
-var sc_project=12357551; 
-var sc_invisible=1; 
-var sc_security="b15a6b74"; 
-var sc_https=1; 
-var sc_remove_link=1; 
+var sc_project=12357551;
+var sc_invisible=1;
+var sc_security="b15a6b74";
+var sc_https=1;
+var sc_remove_link=1;
 </script>
 <script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js"
-async></script>
+src="https://www.statcounter.com/counter/counter.js" async></script>
 <noscript><div class="statcounter"><img class="statcounter"
 src="https://c.statcounter.com/12357551/0/b15a6b74/1/"
 alt="Web Analytics"></div></noscript>
 <!-- End of Statcounter Code -->
-	
+
 </body>
 </html>
+
