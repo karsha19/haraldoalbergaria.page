@@ -9,10 +9,73 @@
 <body>
 
   <div class="image">
+
     <div class="text">
-      Haraldo Albergaria
+      Haraldo Albergaria<br>
+      <p style="font-size:50px;">Photographs</p>
     </div>
-    <img src="https://live.staticflickr.com/4556/37897648625_a32bfa6141_o.jpg"/>
+
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/4556/37897648625_f4572d707d_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49687632177_d8fa97d23f_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49606835537_c917b7e324_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49588257501_ae01c789d6_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49581905957_0a7106526e_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49539348992_69e9eb8dd3_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49510913086_d5b1743360_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49478834737_d8735341ec_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49409010021_71f814d980_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49382297362_c364a35529_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49294203548_69d689de96_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49222419271_a1a8c1716e_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49294559428_bce6f22de5_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49151726762_b35b9b8068_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/49006706022_ea8f375078_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/65535/48826306598_2ffcc69a89_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/4900/45297754695_28acce0cf6_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/4857/32055700068_1c67d786b1_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/1931/44670022445_b9b59014e0_k.jpg" style="width:100%">
+    </div>
+    <div class="mySlides fade">
+      <img src="https://live.staticflickr.com/1947/31382633778_31d7955971_k.jpg" style="width:100%">
+    </div>
+
     <div class="icons">
       <div class="icon"></div>
       <div class="icon"></div>
@@ -22,10 +85,29 @@
       <div class="icon"></div>
       <div class="icon"></div>
     </div>
+
     <div class="attributions">
       <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha">Pixel Buddha</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </div>
+
   </div>
+
+  <script>
+  var slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
+  }
+  </script>
 
   <!-- Default Statcounter code for photo website https://haraldo-albergaria.photos/ -->
   <script type="text/javascript">
@@ -34,11 +116,11 @@
   var sc_security="b15a6b74";
   var sc_https=1;
   var sc_remove_link=1;
-</script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js"
-async></script>
-<noscript><div class="statcounter"><img class="statcounter"
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><img class="statcounter"
   src="https://c.statcounter.com/12357551/0/b15a6b74/1/"
   alt="Web Analytics"></div></noscript>
   <!-- End of Statcounter Code -->
