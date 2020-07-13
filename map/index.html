@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>Haraldo Albergaria | Photos Map</title>
+<link rel="shortcut icon" type="image/x-icon" href="../icons/favicon.ico">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
@@ -68,7 +69,7 @@ a:hover {
 }
 
 </style>
- 
+
 <div id="map"></div>
 <div id="menu">
 <input id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked" />
@@ -93,9 +94,9 @@ a:hover {
 <div class="attribution">
     Icons made by <a href="https://www.flaticon.com/authors/turkkub" title="turkkub">turkkub</a> (World) and <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> (Countries) from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
 </div>
-	
+
 <script>
-	
+
     mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -103,23 +104,23 @@ a:hover {
         center: [-40, 15],
         zoom: 2
     });
-	
+
     map.addControl(new mapboxgl.NavigationControl());
 
     var layerList = document.getElementById('menu');
     var inputs = layerList.getElementsByTagName('input');
- 
+
     function switchLayer(layer) {
         var layerId = layer.target.id;
         map.setStyle('mapbox://styles/mapbox/' + layerId);
     }
- 
+
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].onclick = switchLayer;
     }
-    
+
 	var locations = getLocations();
-	
+
 	locations.forEach(addMarker);
 
     function addMarker(value) {
@@ -131,62 +132,62 @@ a:hover {
 
     function showWorld() {
 	    map.flyTo({
-		    center: [-40, 15], 
+		    center: [-40, 15],
 			zoom: 1.8
 		});
 	}
-	
+
 	function flyToBrazil() {
 	    map.flyTo({
-		    center: [-47.942175, -15.720065], 
+		    center: [-47.942175, -15.720065],
 			zoom: 3.5
 		});
 	}
-	
+
 	function flyToUSA() {
 	    map.flyTo({
-		    center: [-98.353336, 38.001705], 
+		    center: [-98.353336, 38.001705],
 			zoom: 3.5
 		});
 	}
-	
+
 	function flyToArgentina() {
 	    map.flyTo({
-		    center: [-54.514142, -25.632677], 
+		    center: [-54.514142, -25.632677],
 			zoom: 11.0
 		});
 	}
-	
+
 	function flyToParaguay() {
 	    map.flyTo({
-		    center: [-54.593004, -25.410668], 
+		    center: [-54.593004, -25.410668],
 			zoom: 15.0
 		});
 	}
-	
+
 	function flyToItaly() {
 	    map.flyTo({
-		    center: [13.663935, 41.369012], 
+		    center: [13.663935, 41.369012],
 			zoom: 6.7
 		});
 	}
-	
+
 	function flyToVatican() {
 	    map.flyTo({
-		    center: [12.452778, 41.904047], 
+		    center: [12.452778, 41.904047],
 			zoom: 15.5
 		});
 	}
-	
+
 	function flyToCroatia() {
 	    map.flyTo({
-		    center: [16.494044, 44.39349], 
+		    center: [16.494044, 44.39349],
 			zoom: 6.3
 		});
 	}
 
 	function getLocations() {
-	
+
         var locations = [];
         locations.push([[12.453936, 41.906221], "<a href=\"https://www.flickr.com/photos/hpfilho/49687632177\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49687632177_edb5a6783c_s.jpg\"/></a> "]);
         locations.push([[12.453761, 41.906555], "<a href=\"https://www.flickr.com/photos/hpfilho/49686873401\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49686873401_ef5b2a64d8_s.jpg\"/></a> "]);
@@ -744,4 +745,3 @@ alt="Web Analytics Made Easy - StatCounter"></div></noscript>
 
 </body>
 </html>
-
