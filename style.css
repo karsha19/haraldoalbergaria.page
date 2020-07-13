@@ -1,5 +1,10 @@
 body {
   margin: 0px;
+  background-color: black;
+}
+
+img {
+  width: 100%;
 }
 
 a:link {
@@ -28,14 +33,17 @@ a:hover {
   position: static;
   text-align: center;
   width:100%;
-  min-width: 1024px;
+  min-width: 1000px;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .text {
   position: relative;
   height: 0px;
-  font-size: 80px;
-  font-family: Arial;
+  font-size: 82px;
+  font-family: Candara;
+  font-weight: bold;
   top: 120px;
   color: white;
   text-shadow: 3px 3px 6px black;
@@ -65,10 +73,9 @@ a:hover {
 
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
-.mySlides {display: none;}
+.slides {display: none;}
 img {vertical-align: middle;}
 
-/* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
   position: relative;
@@ -79,7 +86,6 @@ img {vertical-align: middle;}
   background-color: #717171;
 }
 
-/* Fading animation */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 2s;
