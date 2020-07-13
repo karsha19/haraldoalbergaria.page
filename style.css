@@ -22,15 +22,17 @@ a:hover {
 }
 
 .icon {
+  display: block;
   width: 80px;
   height: 80px;
+  margin: auto;
 }
 
 .image {
   position: static;
   text-align: center;
   width:100%;
-  min-width: 1200px;
+  min-width: 1024px;
 }
 
 .text {
@@ -38,17 +40,17 @@ a:hover {
   height: 0px;
   font-size: 80px;
   font-family: Arial;
-  bottom: 700px;
+  top: 150px;
   color: white;
   text-shadow: 3px 3px 6px black;
 }
 
 .icons {
-  display: inline-grid;
-  grid-template-columns: auto auto auto;
-  grid-column-gap: 80px;
   position: relative;
-  bottom: 300px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  height: 0px;
+  bottom: 350px;
 }
 
 .attributions {
@@ -57,7 +59,7 @@ a:hover {
   font-size: 8px;
   font-family: Arial;
   text-align: left;
-  bottom: 100px;
+  bottom: 20px;
   color: lightgrey;
   margin-left: 10px;
 }
