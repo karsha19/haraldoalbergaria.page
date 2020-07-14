@@ -35,11 +35,11 @@
 
 <script>
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NlNmozZ3gwNWdxMnJwaHRveHNuMDE3In0.UFRldAO_nZrNCt6inNHDcQ';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [10, 15],
+        center: [10, 30],
         zoom: 1.8
     });
 
@@ -62,7 +62,7 @@
 	locations.forEach(addMarker);
 
     function addMarker(value) {
-        new mapboxgl.Marker({color:'#C2185B',scale:0.7,draggable:false})
+        new mapboxgl.Marker({color:'#777777',scale:0.7,draggable:false})
         	.setLngLat(value[0])
             .setPopup(new mapboxgl.Popup({closeButton:false,closeOnMove:true,maxWidth:'566px'}).setHTML(value[1]))
             .addTo(map);
@@ -70,7 +70,7 @@
 
     function showWorld() {
 	    map.flyTo({
-		    center: [10, 15],
+		    center: [10, 30],
 			zoom: 1.8
 		});
 	}
@@ -78,7 +78,7 @@
 	function flyToGreece() {
 	    map.flyTo({
 		    center: [23.726696, 37.984387],
-			zoom: 8.0
+			zoom: 5.0
 		});
 	}
 
@@ -99,6 +99,11 @@
 	function getLocations() {
 
         var locations = [];
+
+        locations.push([[23.740163, 38.002117], "<a href=\"https://www.flickr.com/photos/hpfilho/49623834023\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49623834023_f7d459e018_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/40715981733\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/40715981733_37c01d92ba_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/46608856834\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/46608856834_93ee500bb0_s.jpg\"/></a> <a href=\"https://www.flickr.com/photos/hpfilho/31657326987\" target=\"_blank\"><img src=\"https://live.staticflickr.com/7858/31657326987_d1063f3f4c_s.jpg\"/></a> "]);
+        locations.push([[-4.257888, 55.865262], "<a href=\"https://www.flickr.com/photos/hpfilho/49382297362\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/49382297362_435cc951cf_s.jpg\"/></a> "]);
+        locations.push([[24.019707, 35.518508], "<a href=\"https://www.flickr.com/photos/hpfilho/48108145903\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/48108145903_fa027fb2a8_s.jpg\"/></a> "]);
+        locations.push([[19.066552, 47.482346], "<a href=\"https://www.flickr.com/photos/hpfilho/40724874843\" target=\"_blank\"><img src=\"https://live.staticflickr.com/65535/40724874843_bbda481a23_s.jpg\"/></a> "]);
 
         return locations;
 
