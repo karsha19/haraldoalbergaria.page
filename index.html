@@ -107,10 +107,7 @@
       slides[i].style.display = "none";
     }
     // Start showing the first n images in the list
-    if (slideIndex < numBeforeRand && repeat == false) {
-      slideIndex++;
-      shownIndexes.push(slideIndex);
-    }
+    if (slideIndex < numBeforeRand && repeat == false) { slideIndex++; }
     else { // and after that randomize the images
       if (shownIndexes.length >= slides.length) {
         shownIndexes = [];
@@ -120,9 +117,8 @@
       while (shownIndexes.includes(slideIndex)) {
         slideIndex = Math.floor(Math.random() * slides.length) + 1;
       }
-      shownIndexes.push(slideIndex);
     }
-
+    shownIndexes.push(slideIndex);
     slides[slideIndex-1].style.display = "block";
     setTimeout(showSlides, duration);
 
