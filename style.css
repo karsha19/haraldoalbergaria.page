@@ -6,6 +6,7 @@ body {
 img.slide {
   margin: 0;
   position: fixed;
+  height: 100%;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
