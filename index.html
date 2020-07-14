@@ -33,6 +33,7 @@
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/49116120046_23a91f8d58_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/1535/24244872729_1b1f416c25_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/908/27179945367_6d6075ac98_h.jpg"/></div>
+    <div class="slides fade"><img src="https://live.staticflickr.com/65535/49252813188_166a07aa5b_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/49606835537_6a57fda60b_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/49269304281_1f5f38598c_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/3523585325_9a5859f5e5_h.jpg"/></div>
@@ -42,6 +43,7 @@
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/49309575328_40588922ed_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/1639/24436823545_f2cd3f4d77_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/49588257501_a7d22d234c_h.jpg"/></div>
+    <div class="slides fade"><img src="https://live.staticflickr.com/65535/49223319876_2375d7d1b1_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/1590/24460299265_d1058e85f9_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/49581905957_1083e958a1_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/4857/32055700068_f399b02ff3_h.jpg"/></div>
@@ -52,6 +54,7 @@
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/48816969011_f8b5c17d96_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/49409010021_fae6a4f75a_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/1931/44670022445_6a56a8a456_h.jpg"/></div>
+    <div class="slides fade"><img src="https://live.staticflickr.com/65535/49268823053_c6ca9c10a5_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/1617/24356240541_04e4548b75_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/48816955791_8d6b2e9daf_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/823/27065829567_d62b7c03ca_h.jpg"/></div>
@@ -67,6 +70,7 @@
     <div class="slides fade"><img src="https://live.staticflickr.com/587/23207114034_1849bafd8c_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/49635308882_95d28cdf9b_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/4893/39967796063_05091919a9_h.jpg"/></div>
+    <div class="slides fade"><img src="https://live.staticflickr.com/65535/49268819833_e1cf08f286_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/49478834737_64a36a0b48_h.jpg"/></div>
     <div class="slides fade"><img src="https://live.staticflickr.com/65535/49007726938_e32152b38b_h.jpg"/></div>
 
@@ -89,7 +93,11 @@
   <script>
 
   var slideIndex = 0;
-  var numBeforeRand = 5; // number of images in the list to show before randomize
+  var shownIndexes = [];
+  var numBeforeRand = 5;
+  var duration = 3500;
+  var repeat = false;
+
   showSlides();
 
   function showSlides() {
@@ -98,16 +106,28 @@
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
-    if(slideIndex < numBeforeRand) { // Start showing the first n images in the list
+    // Start showing the first n images in the list
+    if (slideIndex < numBeforeRand && repeat == false) {
       slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}
+      shownIndexes.push(slideIndex);
     }
     else { // and after that randomize the images
-      slideIndex = Math.floor(Math.random() * (slides.length - numBeforeRand)) + numBeforeRand + 1;
+      if (shownIndexes.length >= slides.length) {
+        shownIndexes = [];
+        repeat = true;
+      }
+      // do not repeat slides
+      while (shownIndexes.includes(slideIndex)) {
+        slideIndex = Math.floor(Math.random() * slides.length) + 1;
+      }
+      shownIndexes.push(slideIndex);
     }
+
     slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 5000); // Change image every 5 seconds
+    setTimeout(showSlides, duration);
+
   }
+
   </script>
 
   <!-- Default Statcounter code for photo website
