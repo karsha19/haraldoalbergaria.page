@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Haraldo Albergaria | Photos Map</title>
+<link rel="shortcut icon" type="image/x-icon" href="../../res/icons/favicon.ico">
+<link rel="stylesheet" type="text/css" href="../style.css" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="map"></div>
+<div id="menu">
+<input id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked" />
+<label for="streets-v11">streets</label>
+<input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
+<label for="outdoors-v11">outdoors</label>
+<input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+<label for="satellite-v9">satellite</label>
+</div>
+
+<ul class="flags_icons">
+    <li class="flags_icons"><img class="icon" src="../icons/worldwide.svg" title="World" alt="World" onclick="showWorld()" /></li>
+    <li class="flags_icons"><img class="icon" src="../icons/greece.svg" title="Greece" alt="Greece" onclick="flyToGreece()" /></li>
+    <li class="flags_icons"><img class="icon" src="../icons/hungary.svg" title="Hungary" alt="Hungary" onclick="flyToHungary()" /></li>
+    <li class="flags_icons"><img class="icon" src="../icons/scotland.svg" title="Scotland" alt="Scotland" onclick="flyToScotland()" /></li>
+</ul>
+
+<div class="attribution">
+    Icons made by <a href="https://www.flaticon.com/authors/turkkub" title="turkkub" target="_blank">turkkub</a> (World) and <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> (Countries) from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a>
+</div>
+
+<script>
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NlNmozZ3gwNWdxMnJwaHRveHNuMDE3In0.UFRldAO_nZrNCt6inNHDcQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [10, 15],
+        zoom: 1.8
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+    var layerList = document.getElementById('menu');
+    var inputs = layerList.getElementsByTagName('input');
+
+    function switchLayer(layer) {
+        var layerId = layer.target.id;
+        map.setStyle('mapbox://styles/mapbox/' + layerId);
+    }
+
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = switchLayer;
+    }
+
+	var locations = getLocations();
+
+	locations.forEach(addMarker);
+
+    function addMarker(value) {
+        new mapboxgl.Marker({color:'#C2185B',scale:0.7,draggable:false})
+        	.setLngLat(value[0])
+            .setPopup(new mapboxgl.Popup({closeButton:false,closeOnMove:true,maxWidth:'566px'}).setHTML(value[1]))
+            .addTo(map);
+    }
+
+    function showWorld() {
+	    map.flyTo({
+		    center: [10, 15],
+			zoom: 1.8
+		});
+	}
+
+	function flyToGreece() {
+	    map.flyTo({
+		    center: [23.726696, 37.984387],
+			zoom: 8.0
+		});
+	}
+
+	function flyToHungary() {
+	    map.flyTo({
+		    center: [19.086259, 47.537395],
+			zoom: 7.0
+		});
+	}
+
+	function flyToScotland() {
+	    map.flyTo({
+		    center: [-4.115885, 55.713086],
+			zoom: 7.0
+		});
+	}
+
+	function getLocations() {
+
+        var locations = [];
+
+        return locations;
+
+    }
+
+</script>
+
+<!-- Default Statcounter code for photo website
+https://haraldo-albergaria.photos/ -->
+<script type="text/javascript">
+var sc_project=12357551;
+var sc_invisible=1;
+var sc_security="b15a6b74";
+var sc_https=1;
+var sc_remove_link=1;
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><img class="statcounter"
+src="https://c.statcounter.com/12357551/0/b15a6b74/1/"
+alt="Web Analytics"></div></noscript>
+<!-- End of Statcounter Code -->
+
+</body>
+</html>
