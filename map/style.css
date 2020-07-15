@@ -50,7 +50,7 @@ body {
 .selected-exhibits {
   padding: 5px;
   color: white;
-  background-color: #777777;
+  background-color: #034081;
 }
 
 .unselected-exhibits {
@@ -61,7 +61,7 @@ body {
 
 .unselected-exhibits:hover {
   color: white;
-  background-color: #777777;
+  background-color: #034081;
 }
 
 ul.flags_icons {

@@ -67,7 +67,7 @@
 	locations.forEach(addMarker);
 
     function addMarker(value) {
-        new mapboxgl.Marker({color:'#777777',scale:0.7,draggable:false})
+        new mapboxgl.Marker({color:'#034081',scale:0.7,draggable:false})
         	.setLngLat(value[0])
             .setPopup(new mapboxgl.Popup({closeButton:false,closeOnMove:true,maxWidth:'566px'}).setHTML(value[1]))
             .addTo(map);
