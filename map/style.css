@@ -64,6 +64,27 @@ body {
   background-color: #034081;
 }
 
+.exhibition {
+  font-family: arial;
+  text-align: center;
+  margin: 5px;
+}
+
+.gallery-name {
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 10px;
+  border-bottom: solid;
+  border-color: lightgrey;
+  border-width: 1px;
+  margin: 0px 0px 15px 0px;
+}
+
+.exhibition-name {
+  font-size: 14px;
+  margin: 5px;
+}
+
 ul.flags_icons {
   bottom: 0;
   position: fixed;
@@ -121,5 +142,20 @@ a.switch:visited {
 
 a.switch:hover {
   color: inherit;
+  text-decoration: none;
+}
+
+a.exhib:link {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.exhib:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.exhib:hover {
+  color: #034081;
   text-decoration: none;
 }
