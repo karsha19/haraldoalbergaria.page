@@ -1,16 +1,8 @@
+/* Page Layout */
+
 body {
   margin: 0px;
   background-color: black;
-}
-
-img.slide {
-  margin: 0;
-  position: fixed;
-  height: 100%;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 img.icon {
@@ -34,14 +26,14 @@ a:hover {
   text-decoration: underline;
 }
 
-.main-container {
+#main-container {
   position: fixed;
   width: 100%;
   margin: auto;
   text-align: center;
 }
 
-.text {
+.title {
   position: fixed;
   top: 120px;
   width: 100%;
@@ -55,11 +47,13 @@ a:hover {
 
 .icons {
   position: fixed;
+  left: 50%;
   bottom: 100px;
-  width: 100%;
+  width: 600px;
+  margin: 0 auto 0 -300px;
   z-index: 1;
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
 }
 
 .attributions {
@@ -70,6 +64,19 @@ a:hover {
   font-size: 7px;
   font-family: Arial;
   color: lightgrey;
+}
+
+
+/* Slideshow */
+
+img.slide {
+  margin: 0;
+  position: fixed;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 * {box-sizing: border-box;}
@@ -88,6 +95,7 @@ img {vertical-align: middle;}
   animation-duration: 2s;
 }
 
+
 @-webkit-keyframes fade {
   from {opacity: .1}
   to {opacity: 1}
@@ -99,11 +107,58 @@ img {vertical-align: middle;}
 }
 
 
+/* Loader Spinning Wheel */
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  z-index: 1;
+}
+
+#wheel {
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  border: 12px solid lightgrey;
+  border-radius: 50%;
+  border-top: 12px solid grey;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.text {
+  width: 240px;
+  margin-left: -120px;
+  font-family: arial;
+  font-size: 16px;
+  color: lightgrey;
+  text-align: center;
+  padding-top: 40px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Responsive layout */
+
 @media only screen and (max-width: 1000px) {
-img.icon {
+  img.icon {
     width: 70px;
     height: 70px;
     margin: auto;
+  }
+  .icons {
+    width: 500px;
+    margin: 0 auto 0 -250px;
   }
 }
 
@@ -113,6 +168,10 @@ img.icon {
       height: 60px;
       margin: auto;
     }
+    .icons {
+      width: 400px;
+      margin: 0 auto 0 -200px;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -120,5 +179,9 @@ img.icon {
     width: 50px;
     height: 50px;
     margin: auto;
+  }
+  .icons {
+    width: 300px;
+    margin: 0 auto 0 -150px;
   }
 }
