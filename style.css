@@ -9,7 +9,7 @@ img.icon {
   width: 70px;
   height: 70px;
   margin: auto;
-  transition: width 0.1s, height 0.1s;
+  transition: width 0.25s, height 0.25s;
 }
 
 img.icon:hover {

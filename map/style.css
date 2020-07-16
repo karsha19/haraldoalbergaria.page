@@ -97,9 +97,15 @@ ul.flags_icons {
   padding: 5px 10px 1px 10px;
 }
 
-li.flags_icons {
-  margin-top: 5px;
-  margin-bottom: 5px;
+li.flag_icon {
+  width: 32px;
+  height: 32px;
+  margin: 7px 0px 7px 0px;
+  transition: width 0.25s, height 0.25s;
+}
+
+li.flag_icon:hover {
+  padding: 0px;
 }
 
 .attribution {
@@ -114,6 +120,11 @@ li.flags_icons {
 img.icon {
   width: 30px;
   height: 30px;
+}
+
+img.icon:hover {
+  width: 32px;
+  height: 32px;
 }
 
 a:link {
