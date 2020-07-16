@@ -9,6 +9,12 @@ img.icon {
   width: 70px;
   height: 70px;
   margin: auto;
+  transition: width 0.1s, height 0.1s;
+}
+
+img.icon:hover {
+  width: 74px;
+  height: 74px;
 }
 
 a:link {
@@ -49,11 +55,21 @@ a:hover {
   position: fixed;
   left: 50%;
   bottom: 50px;
-  width: 900px;
-  margin: 0 auto 0 -450px;
+  width: 850px;
+  margin: 0 auto 0 -425px;
   z-index: 1;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto;
+}
+
+.icon {
+  width: 74px;
+  height: 74px;
+  padding: 2px;
+}
+
+.icon:hover {
+  padding: 0px;
 }
 
 .attributions {
@@ -150,6 +166,7 @@ img {vertical-align: middle;}
 
 /* Responsive layout */
 
+/*
 @media only screen and (max-width: 1000px) {
   img.icon {
     width: 60px;
@@ -185,3 +202,4 @@ img {vertical-align: middle;}
     margin: 0 auto 0 -200px;
   }
 }
+*/
