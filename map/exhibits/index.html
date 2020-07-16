@@ -1,118 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<title>Haraldo Albergaria | Exhibitions Map</title>
-<link rel="shortcut icon" type="image/x-icon" href="../../icons/favicon.ico">
-<link rel="stylesheet" type="text/css" href="../style.css" />
-<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-<script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
-<link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <title>Haraldo Albergaria | Exhibitions Map</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
 </head>
 
 <body>
 
-<div id="map"></div>
-<div id="menu">
-<input id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked" />
-<label for="streets-v11">streets</label>
-<input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
-<label for="outdoors-v11">outdoors</label>
-<input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
-<label for="satellite-v9">satellite</label>
-</div>
+  <div id="map"></div>
+  <div id="menu">
+    <input id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked" />
+    <label for="streets-v11">streets</label>
+    <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
+    <label for="outdoors-v11">outdoors</label>
+    <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+    <label for="satellite-v9">satellite</label>
+  </div>
 
-<ul class="flags_icons">
-  <li class="flag_icon"><img class="icon" src="../icons/scotland.svg" title="Scotland" alt="Scotland" onclick="flyToScotland()" /></li>
-  <li class="flag_icon"><img class="icon" src="../icons/hungary.svg" title="Hungary" alt="Hungary" onclick="flyToHungary()" /></li>
-  <li class="flag_icon"><img class="icon" src="../icons/greece.svg" title="Greece" alt="Greece" onclick="flyToGreece()" /></li>
-  <li class="flag_icon"><img class="icon" src="../icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorld()" /></li>
-</ul>
+  <div class="exhibits-countries-panel">
+    <div class="flag-icon"><img class="icon" src="../icons/scotland.svg" title="Scotland" alt="Scotland" onclick="flyToScotland()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/hungary.svg" title="Hungary" alt="Hungary" onclick="flyToHungary()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/greece.svg" title="Greece" alt="Greece" onclick="flyToGreece()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorld()" /></div>
+  </div>
 
-<div class="map_switch">
-  <div class="unselected-photos"><a class="switch" href="https://haraldo-albergaria.photos/map/">PHOTOS</a></div>
-  <div class="selected-exhibits">EXHIBITS</div>
-</div>
+  <div class="map-switcher">
+    <div class="unselected-photos"><a class="switch" href="https://haraldo-albergaria.photos/map/">PHOTOS</a></div>
+    <div class="selected-exhibits">EXHIBITS</div>
+  </div>
 
-<div class="attribution">
+  <div class="attribution">
     Icons made by <a href="https://www.flaticon.com/authors/turkkub" title="turkkub" target="_blank">turkkub</a> (World) and <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> (Countries) from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a>
-</div>
+  </div>
 
-<script>
+  <script>
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [10, 30],
-        zoom: 1.8
+  mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [10, 30],
+    zoom: 1.8
+  });
+
+  map.addControl(new mapboxgl.NavigationControl());
+
+  var layerList = document.getElementById('menu');
+  var inputs = layerList.getElementsByTagName('input');
+
+  function switchLayer(layer) {
+    var layerId = layer.target.id;
+    map.setStyle('mapbox://styles/mapbox/' + layerId);
+  }
+
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].onclick = switchLayer;
+  }
+
+  var locations = getLocations();
+
+  locations.forEach(addMarker);
+
+  function addMarker(value) {
+    new mapboxgl.Marker({color:'#034081',scale:0.7,draggable:false})
+    .setLngLat(value[0])
+    .setPopup(new mapboxgl.Popup({closeButton:false,closeOnMove:true,maxWidth:'566px'}).setHTML(value[1]))
+    .addTo(map);
+  }
+
+  function showWorld() {
+    map.flyTo({
+      center: [10, 30],
+      zoom: 1.8
     });
+  }
 
-    map.addControl(new mapboxgl.NavigationControl());
+  function flyToGreece() {
+    map.flyTo({
+      center: [23.726696, 37.984387],
+      zoom: 5.0
+    });
+  }
 
-    var layerList = document.getElementById('menu');
-    var inputs = layerList.getElementsByTagName('input');
+  function flyToHungary() {
+    map.flyTo({
+      center: [19.086259, 47.537395],
+      zoom: 7.0
+    });
+  }
 
-    function switchLayer(layer) {
-        var layerId = layer.target.id;
-        map.setStyle('mapbox://styles/mapbox/' + layerId);
-    }
+  function flyToScotland() {
+    map.flyTo({
+      center: [-4.115885, 55.713086],
+      zoom: 7.0
+    });
+  }
 
-    for (var i = 0; i < inputs.length; i++) {
-        inputs[i].onclick = switchLayer;
-    }
+  function getLocations() {
 
-	var locations = getLocations();
+    var locations = [];
 
-	locations.forEach(addMarker);
+    locations.push([[23.740163, 38.002117], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com\" target=\"_blank\">Blank Wall Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.blankwallgallery.com/exhibition-monochrome-2020/\" target=\"_blank\">Monochrome</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-moments-color/\" target=\"_blank\">Moments of Color</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-street-photography-2019/\" target=\"_blank\">Street Photography</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-black-white-2019/\" target=\"_blank\">Black & White</a></div></div>"]);
+    locations.push([[-4.257888, 55.865262], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"https://www.glasgowgalleryofphotography.com/\" target=\"_blank\">Glasgow Photo Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.flickr.com/photos/hpfilho/49382297362/\" target=\"_blank\">Seascape</a></div></div>"]);
+    locations.push([[24.019707, 35.518508], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"http://www.cipfestival.com/\" target=\"_blank\">Cip Festival</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.cipfestival.com/participating-artists-2019/\" target=\"_blank\">Monochrome</a></div></div>"]);
+    locations.push([[19.066552, 47.482346], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"https://www.ph21gallery.com/\" target=\"_blank\">PH21 Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.ph21gallery.com/shape-of-things-19/\" target=\"_blank\">The Shape of Things</a></div></div>"]);
 
-    function addMarker(value) {
-        new mapboxgl.Marker({color:'#034081',scale:0.7,draggable:false})
-        	.setLngLat(value[0])
-            .setPopup(new mapboxgl.Popup({closeButton:false,closeOnMove:true,maxWidth:'566px'}).setHTML(value[1]))
-            .addTo(map);
-    }
+    return locations;
 
-    function showWorld() {
-	    map.flyTo({
-		    center: [10, 30],
-			zoom: 1.8
-		});
-	}
-
-	function flyToGreece() {
-	    map.flyTo({
-		    center: [23.726696, 37.984387],
-			zoom: 5.0
-		});
-	}
-
-	function flyToHungary() {
-	    map.flyTo({
-		    center: [19.086259, 47.537395],
-			zoom: 7.0
-		});
-	}
-
-	function flyToScotland() {
-	    map.flyTo({
-		    center: [-4.115885, 55.713086],
-			zoom: 7.0
-		});
-	}
-
-	function getLocations() {
-
-        var locations = [];
-
-        locations.push([[23.740163, 38.002117], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com\" target=\"_blank\">Blank Wall Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.blankwallgallery.com/exhibition-monochrome-2020/\" target=\"_blank\">Monochrome</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-moments-color/\" target=\"_blank\">Moments of Color</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-street-photography-2019/\" target=\"_blank\">Street Photography</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-black-white-2019/\" target=\"_blank\">Black & White</a></div></div>"]);
-        locations.push([[-4.257888, 55.865262], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"https://www.glasgowgalleryofphotography.com/\" target=\"_blank\">Glasgow Photo Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.flickr.com/photos/hpfilho/49382297362/\" target=\"_blank\">Seascape</a></div></div>"]);
-        locations.push([[24.019707, 35.518508], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"http://www.cipfestival.com/\" target=\"_blank\">Cip Festival</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.cipfestival.com/participating-artists-2019/\" target=\"_blank\">Monochrome</a></div></div>"]);
-        locations.push([[19.066552, 47.482346], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"https://www.ph21gallery.com/\" target=\"_blank\">PH21 Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.ph21gallery.com/shape-of-things-19/\" target=\"_blank\">The Shape of Things</a></div></div>"]);
-
-        return locations;
-
-    }
+  }
 
 </script>
 
@@ -128,9 +128,9 @@ var sc_remove_link=1;
 <script type="text/javascript"
 src="https://www.statcounter.com/counter/counter.js" async></script>
 <noscript><div class="statcounter"><img class="statcounter"
-src="https://c.statcounter.com/12357551/0/b15a6b74/1/"
-alt="Web Analytics"></div></noscript>
-<!-- End of Statcounter Code -->
+  src="https://c.statcounter.com/12357551/0/b15a6b74/1/"
+  alt="Web Analytics"></div></noscript>
+  <!-- End of Statcounter Code -->
 
 </body>
 </html>

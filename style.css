@@ -6,15 +6,15 @@ body {
 }
 
 img.icon {
-  width: 70px;
-  height: 70px;
+  width: 64px;
+  height: 64px;
   margin: auto;
   transition: width 0.25s, height 0.25s;
 }
 
 img.icon:hover {
-  width: 74px;
-  height: 74px;
+  width: 68px;
+  height: 68px;
 }
 
 a:link {
@@ -53,18 +53,19 @@ a:hover {
 
 .icons {
   position: fixed;
-  left: 50%;
-  bottom: 50px;
-  width: 850px;
-  margin: 0 auto 0 -425px;
-  z-index: 1;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto;
+  left: 50%;
+  bottom: 50px;
+  width: 800px;
+  margin: 0 auto 0 -400px;
+  padding: 0 20px 0 20px;
+  z-index: 1;
 }
 
 .icon {
-  width: 74px;
-  height: 74px;
+  width: 68px;
+  height: 68px;
   padding: 2px;
 }
 
