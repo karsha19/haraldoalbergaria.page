@@ -21,7 +21,7 @@ body {
 
 /* Style of map switcher */
 
-.map-switch {
+.map-switcher {
   display: grid;
   position: fixed;
   bottom: 0;
