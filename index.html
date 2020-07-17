@@ -17,7 +17,7 @@
 
   <div style="display:none;" id="main-container">
 
-    <div class="title">
+    <div id="title">
       Haraldo Albergaria<br>
       <p style="font-size:50px;font-weight:normal;">Photographs</p>
     </div>
@@ -80,22 +80,129 @@
     <div class="slides fade"><img class="slide" onload="loadedImage()" src="https://live.staticflickr.com/65535/49478834737_64a36a0b48_h.jpg"/></div>
     <div class="slides fade"><img class="slide" onload="loadedImage()" src="https://live.staticflickr.com/65535/49007726938_e32152b38b_h.jpg"/></div>
 
-    <div class="icons-panel">
+    <div id="icons-panel">
       <div class="icon"><a href="https://flickr.com/photos/hpfilho"><img class="icon" src="icons/flickr.svg"/></a></div>
       <div class="icon"><a href="https://twitter.com/hpfilhoPhoto"><img class="icon" src="icons/twitter.svg"/></a></div>
       <div class="icon"><a href="https://facebook.com/hpfilhoExhibits"><img class="icon" src="icons/facebook.svg"/></a></div>
       <div class="icon"><a href="https://www.gettyimages.com.br/fotos/haraldo-albergaria?mediatype=photography&phrase=haraldo%20albergaria&sort=mostpopular"><img class="icon" src="icons/getty.webp"/></a></div>
+      <div class="icon"><a href="https://www.blurb.com/user/hpfilho"><img class="icon" src="icons/blurb.png"/></a></div>
       <div class="icon"><a href="https://hpfilho.github.io/map/"><img class="icon" src="icons/map.svg"/></a></div>
-      <div class="icon"><a href="https://www.blurb.com/user/hpfilho"><img class="icon" src="icons/book.svg"/></a></div>
-      <div class="icon"><a href="https://hpfilho.github.io/gear/"><img class="icon" src="icons/photo-camera.svg"/></a></div>
+      <div class="icon" onclick="openGearList()"><img class="icon" src="icons/photo-camera.svg"/></div>
       <div class="icon"><a href="mailto:mailbox@haraldo-albergaria.photos"><img class="icon" src="icons/email.svg"/></a></div>
     </div>
 
-    <div class="attributions">
-      <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha" target="_blank">Pixel Buddha</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a></div>
+    <div id="attributions">
+      <div>All icons made by <a href="https://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha" target="_blank">Pixel Buddha</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a> excepting: <a href="https://www.gettyimages.com" target="_blank">Getty Images</a> icon by <a href="https://www.gettyimages.com" target="_blank">Getty Images</a> and <a href="https://www.blurb.com" target="_blank">Blurb</a> icon by <a href="https://www.iconfinder.com" target="_blank">Iconfinder</a></div>
     </div>
 
   </div>
+
+  <!-- Gear list overlay -->
+  <div id="gearList" onclick="closeGearList()" class="overlay">
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+
+      <div class="grid-container">
+
+        <div class="main-gear">
+
+          <div class="gear-title">Main Gear</div>
+
+          <p class="gear-type">Camera Body</p>
+
+          <p class="gear-item">Canon EOS Rebel T5i</p>
+          <p class="gear-type">Zoom Lenses</p>
+          <p class="gear-item">Canon EF-S 10-18mm f/4.5-5.6 IS STM</p>
+          <p class="gear-item">Canon EF-S 18-55mm f/3.5-5.6 IS STM</p>
+          <p class="gear-item">Canon EF-S 55-250mm f/4-5.6 IS STM</p>
+
+          <p class="gear-type">Prime Lenses</p>
+          <p class="gear-item">Canon EF-S 24mm f/2.8 STM</p>
+          <p class="gear-item">Canon EF 50mm f/1.8 STM</p>
+
+          <p class="gear-type">Teleconverters</p>
+          <p class="gear-item">Kenko TELEPLUS HD DGX 1.4x</p>
+          <p class="gear-item">Kenko TELEPLUS HD DGX 2x</p>
+
+          <p class="gear-type">Close-up Lens</p>
+          <p class="gear-item">Canon 250D 58mm</p>
+
+          <p class="gear-type">Filters</p>
+          <p class="gear-item">Hoya HD CIR-PL 67mm</p>
+          <p class="gear-item">Hoya PROND4 67mm</p>
+          <p class="gear-item">Hoya PROND32 67mm</p>
+          <p class="gear-item">B+W F-Pro 110 ND 3.0 58mm</p>
+          <p class="gear-item">Kenko PRO1D R72 (IR) 58mm</p>
+
+          <p class="gear-type">External Flash</p>
+          <p class="gear-item">Canon Speedlite 270EX II</p>
+
+        </div>
+
+        <div class="compact-gear">
+
+          <div class="gear-title">Compact Gear</div>
+
+          <p class="gear-type">Camera Body</p>
+          <p class="gear-item">Samsung NX mini</p>
+
+          <p class="gear-type">Prime Lenses</p>
+          <p class="gear-item">Samsung NX-M 9mm f/3.5 ED</p>
+          <p class="gear-item">Samsung NX-M 17mm f/1.8 ED OIS</p>
+
+          <p class="gear-type">Zoom Lens</p>
+          <p class="gear-item">Samsung NX-M 9-27mm f/3.5-5.6 ED OIS</p>
+
+          <p class="gear-type">Close-up Lens</p>
+          <p class="gear-item">B+W SC NL 3 39mm</p>
+
+          <p class="gear-type">Filters</p>
+          <p class="gear-item">Vu Sion Circular Polarizer 39mm</p>
+          <p class="gear-item">Vu Sion Neutral Density 3.0 49mm</p>
+
+          <p class="gear-type">External Flash</p>
+          <p class="gear-item">Samsung SEF7A</p>
+
+        </div>
+
+        <div class="special-gear">
+
+          <div class="gear-title">Specialized Cameras</div>
+
+          <p class="gear-type">Tough Camera</p>
+          <p class="gear-item">Nikon Coolpix AW120</p>
+
+          <p class="gear-type">Camera Phone</p>
+          <p class="gear-item">Samsung Galaxy A50</p>
+
+        </div>
+
+        <div class="camera-support">
+
+          <div class="gear-title">Camera Support</div>
+
+          <p class="gear-type">Tripod Legs</p>
+          <p class="gear-item">Manfrotto MT293A3</p>
+          <p class="gear-item">Slik Sprint Mini II GM</p>
+
+          <p class="gear-type">Heads</p>
+          <p class="gear-item">Manfrotto MH293D3-Q2</p>
+          <p class="gear-item">Slik SBH-100DQ BK</p>
+          <p class="gear-item">Slik SH-704E</p>
+
+          <p class="gear-type">Flexible Tripod</p>
+          <p class="gear-item">Joby Gorillapod SLR</p>
+
+          <p class="gear-type">Tabletop Tripod</p>
+          <p class="gear-item">Manfrotto Pixi Mini</p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 
   <script>
 
@@ -103,6 +210,7 @@
   var numBeforeRand = 3;     // number of photos to be shown before start randomization
   var minLoaded     = 3;     // minimun number of loaded photos before show the page
   var duration      = 3500;  // duration each photo is shown on the screen (1000 = 1 sec)
+
 
   var slideIndex = 0;
   var shownIndexes = [];
@@ -161,21 +269,42 @@
     setTimeout(showSlides, duration);
   }
 
-  </script>
 
-  <!-- Default Statcounter code for photo website
-  https://haraldo-albergaria.photos/ -->
-  <script type="text/javascript">
-  var sc_project=12357551;
-  var sc_invisible=1;
-  var sc_security="b15a6b74";
-  var sc_https=1;
-  var sc_remove_link=1;
-  </script>
-  <script type="text/javascript"
-  src="https://www.statcounter.com/counter/counter.js"
-  async></script>
-  <noscript><div class="statcounter"><img class="statcounter"
+  function openGearList() {
+    document.getElementById("gearList").style.height = "100%";
+    document.getElementById("title").style.display = "none";
+    document.getElementById("icons-panel").style.display = "none";
+    document.getElementById("attributions").style.display = "none";
+  }
+
+  function closeGearList() {
+    document.getElementById("gearList").style.height = "0%";
+    document.getElementById("title").style.display = "block";
+    document.getElementById("icons-panel").style.display = "grid";
+    document.getElementById("attributions").style.display = "block";
+  }
+
+  window.onkeyup = function (event) {
+    if (event.keyCode == 27) {
+      closeGearList();
+    }
+  }
+
+</script>
+
+<!-- Default Statcounter code for photo website
+https://haraldo-albergaria.photos/ -->
+<script type="text/javascript">
+var sc_project=12357551;
+var sc_invisible=1;
+var sc_security="b15a6b74";
+var sc_https=1;
+var sc_remove_link=1;
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><img class="statcounter"
   src="https://c.statcounter.com/12357551/0/b15a6b74/1/"
   alt="Web Analytics"></div></noscript>
   <!-- End of Statcounter Code -->

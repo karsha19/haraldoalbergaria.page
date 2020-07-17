@@ -30,7 +30,7 @@
   </div>
 
   <div class="map-switcher">
-    <div class="unselected-photos"><a class="switch" href="https://haraldo-albergaria.photos/map/">PHOTOS</a></div>
+    <div class="unselected-photos" onclick="openPhotos()">PHOTOS</div>
     <div class="selected-exhibits">EXHIBITS</div>
   </div>
 
@@ -49,6 +49,10 @@
   });
 
   map.addControl(new mapboxgl.NavigationControl());
+
+  function openPhotos() {
+      window.location.replace("https://hpfilho.github.io/map/");
+  }
 
   var layerList = document.getElementById('menu');
   var inputs = layerList.getElementsByTagName('input');

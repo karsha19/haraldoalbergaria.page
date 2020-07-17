@@ -66,6 +66,7 @@ a.switch:hover {
 .unselected-photos:hover {
   color: white;
   background-color: #C2185B;
+  cursor: pointer;
 }
 
 .selected-exhibits {
@@ -83,6 +84,7 @@ a.switch:hover {
 .unselected-exhibits:hover {
   color: white;
   background-color: #034081;
+  cursor: pointer;
 }
 
 
