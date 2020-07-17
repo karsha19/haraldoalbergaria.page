@@ -90,7 +90,7 @@ a.switch:hover {
 
 .exhibition {
   font-family: arial;
-  text-align: center;
+  text-align: left;
   margin: 5px;
 }
 
@@ -101,7 +101,7 @@ a.switch:hover {
   border-bottom: solid;
   border-color: lightgrey;
   border-width: 1px;
-  margin: 0px 0px 15px 0px;
+  margin: 0px 0px 15px 5px;
 }
 
 .exhibition-name {
