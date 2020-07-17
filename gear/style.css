@@ -25,8 +25,8 @@ body {
   padding: 20px 25px 20px 25px;
 }
 
-.especial-gear {
-  grid-area: especial-gear;
+.special-gear {
+  grid-area: special-gear;
   width: 350px;
   background-color: #070707;
   padding: 0px 25px 20px 25px;
@@ -71,7 +71,7 @@ p.gear-item {
   grid-template-areas:
   'main-gear compact-gear'
   'main-gear camera-support'
-  'especial-gear camera-support';
+  'special-gear camera-support';
   grid-gap: 40px;
   justify-content: center;
   background-color: #070707;
