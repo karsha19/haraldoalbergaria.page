@@ -269,7 +269,7 @@ p.gear-item {
 }
 
 
-/* Responsive layout */
+/* Responsive layout *//*
 
 @media screen and (max-width: 800px) {
 
@@ -288,7 +288,12 @@ p.gear-item {
     'camera-support';
   }
 
+  #attributions {
+    padding: 0 25% 0 25%;
+  }
+
 }
+*/
 
 /* For smartphones */
 @media only screen and (orientation: portrait) and (min-width: 1000px) {
@@ -368,6 +373,10 @@ p.gear-item {
     'special-gear'
     'camera-support';
     grid-gap: 30px;
+  }
+
+  #attributions {
+    padding: 0 25% 0 25%;
   }
 
 }
