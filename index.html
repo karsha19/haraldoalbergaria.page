@@ -257,15 +257,14 @@
     for (var i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
-    // Get a random image when page is refreshed
-    // or the back button was pressed from map page
-    if (loadedImages == 0 || history.length > 1) {
-      var i;
-      for (i = 0; i < numBeforeRand; i++) {
+    // Show a random image if page was reloaded
+    // after back is pressed on map page
+    if (history.length > 1) {
+      for (var i = 0; i < numBeforeRand; i++) {
         shownIndexes.push(i+1);
       }
-      loadedImages = slides.length;
       slideIndex = numBeforeRand;
+      loadedImages = numBeforeRand + minLoaded;
     }
     // Start showing the first n images in the list
     if (slideIndex < numBeforeRand && repeat == false) {
@@ -279,6 +278,9 @@
       }
       // do not repeat slides
       while (shownIndexes.includes(slideIndex)) {
+        if (loadedImages == 0) {
+          loadedImages = slides.length;
+        }
         slideIndex = getIndex(loadedImages);
       }
     }
