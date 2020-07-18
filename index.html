@@ -211,7 +211,6 @@
   <script>
 
   // CONFIGURATION
-  var numBeforeRand = 3;     // number of photos to be shown before start randomization
   var minLoaded     = 3;     // minimun number of loaded photos before show the page
   var duration      = 3500;  // duration each photo is shown on the screen (1000 = 1 sec)
 
@@ -222,16 +221,11 @@
   var repeat = false;
   var slides = document.getElementsByClassName("slides");
 
-  // Show page after 5s if not shown yet
-  setTimeout(showPage, 5000);
-
   if (minLoaded > slides.length) {
     minLoaded = slides.length;
   }
 
-  if (numBeforeRand < minLoaded) {
-    numBeforeRand = minLoaded;
-  }
+  numBeforeRand = minLoaded + 1;
 
   // Avoid show image before it being loaded
   function loadedImage() {

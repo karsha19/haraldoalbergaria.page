@@ -294,15 +294,8 @@ p.gear-item {
 @media only screen and (orientation: portrait) and (min-width: 1000px) {
 
   #title {
-    position: fixed;
-    top: 40px;
-    width: 100%;
-    z-index: 1;
-    font-size: 80px;
-    font-family: Candara;
-    font-weight: bold;
-    color: white;
-    text-shadow: 3px 3px 6px black;
+    top: 20px;
+    font-size: 40px;
   }
 
   #icons-panel {
@@ -317,7 +310,7 @@ p.gear-item {
   }
 
   p.subtitle {
-    font-size: 20px;
+    font-size: 12px;
   }
 
   .icon {
@@ -342,25 +335,24 @@ p.gear-item {
     margin-bottom: 0px;
   }
 
+  .main-gear {
+    padding-top: 0;
+  }
+
+  .compact-gear {
+    padding-top: 0;
+  }
+
   .gear-title {
     font-size: 50px;
-    font-weight: bold;
-    color: lightgrey;
-    border-style: none none solid none;
-    border-color: lightgrey;
-    border-width: thin;
     margin-bottom: 40px;
     padding-bottom: 14px;
-    text-align: left;
   }
 
   p.gear-type {
     font-size: 32px;
-    font-weight: bold;
-    color: lightgrey;
     margin-top: 48px;
     margin-bottom: -6px;
-    text-align: left;
   }
 
   p.gear-item {
@@ -376,7 +368,6 @@ p.gear-item {
     'special-gear'
     'camera-support';
     grid-gap: 30px;
-
   }
 
 }
