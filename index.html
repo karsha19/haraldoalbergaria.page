@@ -211,26 +211,26 @@
   <script>
 
   // CONFIGURATION
-  var numBeforeRand = 3;     // number of photos to be shown before start randomization
   var minLoaded     = 3;     // minimun number of loaded photos before show the page
+  var timeout       = 5000;  // time to wait for min loaded photos until load page anyway (1000 = 1 sec)
   var duration      = 3500;  // duration each photo is shown on the screen (1000 = 1 sec)
 
 
-  var slideIndex = 0;
   var shownIndexes = [];
   var loadedImages = 0;
   var repeat = false;
-  var slides = document.getElementsByClassName("slides");
+  var slides;
+  var slideIndex;
 
-  setTimeout(showPage, 5000);
+  setTimeout(showPage, timeout);
+
+  slides = document.getElementsByClassName("slides");
 
   if (minLoaded > slides.length) {
     minLoaded = slides.length;
   }
 
-  if (numBeforeRand < minLoaded) {
-    numBeforeRand = minLoaded;
-  }
+  slideIndex = getIndex(minLoaded);
 
   // Avoid show image before it being loaded
   function loadedImage() {
@@ -257,23 +257,16 @@
     for (var i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
-    // Start showing the first n images in the list
-    if (slideIndex < numBeforeRand && repeat == false) {
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
+    if (shownIndexes.length >= slides.length) {
+      shownIndexes = [];
+      repeat = true;
     }
-    else { // and after that randomize the images
-      if (shownIndexes.length >= slides.length) {
-        shownIndexes = [];
-        repeat = true;
+    // do not repeat slides
+    while (shownIndexes.includes(slideIndex)) {
+      if (loadedImages == 0) {
+        loadedImages = slides.length;
       }
-      // do not repeat slides
-      while (shownIndexes.includes(slideIndex)) {
-        if (loadedImages == 0) {
-          loadedImages = slides.length;
-        }
-        slideIndex = getIndex(loadedImages);
-      }
+      slideIndex = getIndex(loadedImages);
     }
     shownIndexes.push(slideIndex);
     slides[slideIndex-1].style.display = "block";
