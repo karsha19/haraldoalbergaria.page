@@ -222,6 +222,9 @@
   var repeat = false;
   var slides = document.getElementsByClassName("slides");
 
+  // Show page after 5s if not shown yet
+  setTimeout(showPage, 5000);
+
   if (minLoaded > slides.length) {
     minLoaded = slides.length;
   }
