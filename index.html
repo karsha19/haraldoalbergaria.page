@@ -257,6 +257,15 @@
     for (var i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
+    // Avoid get stuck on loader when refresh page
+    if (loadedImages == 0) {
+      var i;
+      for (i = 0; i < numBeforeRand; i++) {
+        shownIndexes.push(i+1);
+      }
+      loadedImages = slides.length;
+      slideIndex = numBeforeRand;
+    }
     // Start showing the first n images in the list
     if (slideIndex < numBeforeRand && repeat == false) {
       slideIndex++;
@@ -269,7 +278,6 @@
       }
       // do not repeat slides
       while (shownIndexes.includes(slideIndex)) {
-        if (loadedImages == 0) { loadedImages = slides.length }
         slideIndex = getIndex(loadedImages);
       }
     }
