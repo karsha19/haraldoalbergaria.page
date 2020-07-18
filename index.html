@@ -257,15 +257,6 @@
     for (var i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
-    // Show a random image if page was reloaded
-    // after back is pressed on map page
-    if (history.length > 1) {
-      for (var i = 0; i < numBeforeRand; i++) {
-        shownIndexes.push(i+1);
-      }
-      slideIndex = numBeforeRand;
-      loadedImages = numBeforeRand + minLoaded;
-    }
     // Start showing the first n images in the list
     if (slideIndex < numBeforeRand && repeat == false) {
       slideIndex++;
