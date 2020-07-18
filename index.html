@@ -219,7 +219,6 @@
   var slideIndex = 0;
   var shownIndexes = [];
   var loadedImages = 0;
-  var pageLoaded = false;
   var repeat = false;
   var slides = document.getElementsByClassName("slides");
 
@@ -234,7 +233,7 @@
   // Avoid show image before it being loaded
   function loadedImage() {
     loadedImages++;
-    if (pageLoaded == false && loadedImages >= minLoaded) {
+    if (loadedImages >= minLoaded) {
       showPage()
     }
   }
@@ -245,10 +244,11 @@
   }
 
   function showPage() {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("main-container").style.display = "block";
-    pageLoaded = true;
-    showSlides();
+    if (document.getElementById("main-container").style.display == "none") {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("main-container").style.display = "block";
+      showSlides();
+    }
   }
 
   function showSlides() {
