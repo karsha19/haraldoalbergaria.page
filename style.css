@@ -28,8 +28,8 @@ a:visited {
 }
 
 a:hover {
-  color: inherit;
-  text-decoration: underline;
+  color: white;
+  text-decoration: none;
 }
 
 p.subtitle {
@@ -184,7 +184,7 @@ img {vertical-align: middle;}
   background-color: rgba(0,0,0, 0.9);
   overflow-y: scroll;
   transition: 0.5s;
-  cursor: none;
+  cursor: normal;
 }
 
 .overlay-content {
@@ -200,35 +200,42 @@ img {vertical-align: middle;}
   display: none;
 }
 
-.main-gear {
-  grid-area: main-gear;
-  width: 350px;
-  padding: 20px 25px 20px 25px;
-  text-align: left;
-}
-
-.compact-gear {
-  grid-area: compact-gear;
-  width: 350px;
-  padding: 20px 25px 20px 25px;
-  text-align: left;
-}
-
-.special-gear {
-  grid-area: special-gear;
+.about {
+  grid-area: about;
   width: 350px;
   padding: 0px 25px 20px 25px;
   text-align: left;
 }
 
-.camera-support {
-  grid-area: camera-support;
+.exhibits {
+  grid-area: exhibits;
+  width: 740px;
+  padding: 0px 25px 20px 25px;
+  text-align: left;
+}
+
+.gear {
+  grid-area: gear;
   width: 350px;
   padding: 0px 25px 20px 25px;
   text-align: left;
 }
 
-.gear-title {
+.cities {
+  grid-area: cities;
+  width: 350px;
+  padding: 0px 25px 20px 25px;
+  text-align: left;
+}
+
+.parks {
+  grid-area: parks;
+  width: 350px;
+  padding: 0px 25px 20px 25px;
+  text-align: left;
+}
+
+.-title {
   font-size: 20px;
   font-weight: bold;
   color: lightgrey;
@@ -240,7 +247,7 @@ img {vertical-align: middle;}
   text-align: left;
 }
 
-p.gear-type {
+p.-type {
   font-size: 14px;
   font-weight: bold;
   color: lightgrey;
@@ -249,7 +256,7 @@ p.gear-type {
   text-align: left;
 }
 
-p.gear-item {
+p.-item {
   font-size: 14px;
   line-height: 0.5;
   text-align: left;
@@ -258,9 +265,9 @@ p.gear-item {
 .grid-container {
   display: grid;
   grid-template-areas:
-  'main-gear compact-gear'
-  'main-gear camera-support'
-  'special-gear camera-support';
+  'about gear'
+  'exhibits exhibits'
+  'cities parks';
   grid-gap: 40px;
   justify-content: center;
   width: 100%
