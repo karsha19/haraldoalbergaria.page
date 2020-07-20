@@ -278,8 +278,8 @@ img {vertical-align: middle;}
   margin-bottom: -10px;
   padding-bottom: 5px;
   text-align: left;
-  grid-column-start:1;
-  grid-column-end:5;
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 .parks-title {
@@ -292,8 +292,8 @@ img {vertical-align: middle;}
   margin-bottom: -10px;
   padding-bottom: 5px;
   text-align: left;
-  grid-column-start:1;
-  grid-column-end:3;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .cities-column-1 {
@@ -308,10 +308,6 @@ img {vertical-align: middle;}
 .cities-column-3 {
   grid-column-start: 3;
   grid-column-end: 4;
-}
-.cities-column-4 {
-  grid-column-start: 4;
-  grid-column-end: 5;
 }
 
 .parks-column-1 {
@@ -341,6 +337,12 @@ p.item {
 
 p.exhibit {
   line-height:0.8;
+}
+
+p.about {
+  line-height:1.5;
+  margin-top:-2px;
+  text-align:justify;
 }
 
 .grid-container {
@@ -415,14 +417,11 @@ p.exhibit {
     grid-column-end: 2;
     margin-bottom: -12px;
   }
+
   .cities-column-3 {
     grid-column-start: 1;
     grid-column-end: 2;
     margin-bottom: -12px;
-  }
-  .cities-column-4 {
-    grid-column-start: 1;
-    grid-column-end: 2;
   }
 
   .parks-column-1 {
