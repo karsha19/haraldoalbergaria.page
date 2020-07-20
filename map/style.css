@@ -1,25 +1,3 @@
-/* Style of maps */
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-#map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%; }
-
-#menu {
-  position: absolute;
-  background: #fff;
-  padding: 10px;
-  font-family: 'Open Sans', sans-serif;
-  cursor: default;
-}
-
-
 /* Style of map switcher */
 
 .map-switcher {
@@ -169,13 +147,11 @@ a.exhib:hover {
 }
 
 .flag-icon {
-  width: 32px;
-  height: 32px;
-  padding: 1px;
+  width: 30px;
+  height: 30px;
 }
 
 .flag-icon:hover {
-  padding: 0px;
   cursor: pointer;
 }
 
@@ -183,12 +159,6 @@ img.icon {
   width: 30px;
   height: 30px;
   margin: auto;
-  transition: width 0.25s, height 0.25s;
-}
-
-img.icon:hover {
-  width: 32px;
-  height: 32px;
 }
 
 

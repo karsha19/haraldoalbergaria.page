@@ -2,9 +2,6 @@
 <html>
 <head>
 <meta charset="utf-8" />
-  <title>Haraldo Albergaria | Photos Map</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../icons/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="style.css" />
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
@@ -28,29 +25,9 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
 <label for="satellite-v9">satellite</label>
 </div>
 
-<div class="photos-countries-panel">
-    <div class="flag-icon"><img class="icon" src="icons/croatia.svg" title="Croatia" alt="Croatia" onclick="flyToCroatia()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/italy.svg" title="Italy" alt="Italy" onclick="flyToItaly()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/vatican.svg" title="Vatican" alt="Vatican" onclick="flyToVatican()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/paraguay.svg" title="Paraguay" alt="Paraguay" onclick="flyToParaguay()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/argentina.svg" title="Argentina" alt="Argentina" onclick="flyToArgentina()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/united-states.svg" title="United States" alt="United States" onclick="flyToUSA()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/brazil.svg" title="Brazil" alt="Brazil" onclick="flyToBrazil()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorldwide()" /></div>
-</div>
-
-<div class="map-switcher">
-    <div class="selected-photos">PHOTOS</div>
-    <div class="unselected-exhibits" onclick="openExhibits()">EXHIBITS</div>
-</div>
-
-<div class="attribution">
-    Icons made by <a href="https://www.flaticon.com/authors/turkkub" title="turkkub" target="_blank">turkkub</a> (World) and <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> (Countries) from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a>
-</div>
-
 <script>
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NlNmozZ3gwNWdxMnJwaHRveHNuMDE3In0.UFRldAO_nZrNCt6inNHDcQ';
+    mapboxgl.accessToken = '<-- Insert here the Mapbox API access token -->';
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
@@ -59,10 +36,6 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
     });
 
     map.addControl(new mapboxgl.NavigationControl());
-
-    function openExhibits() {
-        window.location.replace("https://hpfilho.github.io/map/exhibits/")
-    }
 
     var layerList = document.getElementById('menu');
     var inputs = layerList.getElementsByTagName('input');
@@ -86,70 +59,6 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
             .setPopup(new mapboxgl.Popup({closeButton:false,maxWidth:'566px'}).setHTML(value[1]))
             .addTo(map);
     }
-
-    function showWorldwide() {
-      map.flyTo({
-        center: [-40, 15],
-        zoom: 1.8
-      });
-    }
-
-
-    function flyToBrazil() {
-      map.flyTo({
-        center: [-47.942175, -15.720065],
-        zoom: 3.5
-      });
-    }
-
-
-    function flyToUSA() {
-      map.flyTo({
-        center: [-98.353336, 38.001705],
-        zoom: 3.5
-      });
-    }
-
-
-    function flyToArgentina() {
-      map.flyTo({
-        center: [-54.514142, -25.632677],
-        zoom: 11.0
-      });
-    }
-
-
-    function flyToParaguay() {
-      map.flyTo({
-        center: [-54.593004, -25.410668],
-        zoom: 15.0
-      });
-    }
-
-
-    function flyToVatican() {
-      map.flyTo({
-        center: [12.452778, 41.904047],
-        zoom: 15.5
-      });
-    }
-
-
-    function flyToItaly() {
-      map.flyTo({
-        center: [13.663935, 41.369012],
-        zoom: 6.7
-      });
-    }
-
-
-    function flyToCroatia() {
-      map.flyTo({
-        center: [16.494044, 44.39349],
-        zoom: 6.3
-      });
-    }
-
 
     function getLocations() {
 
@@ -694,22 +603,6 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
 
 </script>
 
-
-<!-- Default Statcounter code for photo website
-https://haraldo-albergaria.photos/ -->
-<script type="text/javascript">
-var sc_project=12357551;
-var sc_invisible=1;
-var sc_security="b15a6b74";
-var sc_https=1;
-var sc_remove_link=1;
-</script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript><div class="statcounter"><img class="statcounter"
-  src="https://c.statcounter.com/12357551/0/b15a6b74/1/"
-  alt="Web Analytics"></div></noscript>
-<!-- End of Statcounter Code -->
 
 </body>
 </html>

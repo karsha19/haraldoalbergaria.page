@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8" />
   <title>Haraldo Albergaria | Photos Map</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../icons/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="../../icons/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../style.css" />
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
 <style>
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-#menu { position: absolute; background: #fff; padding: 10px; 
+#menu { position: absolute; background: #fff; padding: 10px;
 font-family: 'Open Sans', sans-serif; cursor: default; }
 </style>
 </head>
@@ -29,14 +29,14 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
 </div>
 
 <div class="photos-countries-panel">
-    <div class="flag-icon"><img class="icon" src="icons/croatia.svg" title="Croatia" alt="Croatia" onclick="flyToCroatia()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/italy.svg" title="Italy" alt="Italy" onclick="flyToItaly()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/vatican.svg" title="Vatican" alt="Vatican" onclick="flyToVatican()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/paraguay.svg" title="Paraguay" alt="Paraguay" onclick="flyToParaguay()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/argentina.svg" title="Argentina" alt="Argentina" onclick="flyToArgentina()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/united-states.svg" title="United States" alt="United States" onclick="flyToUSA()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/brazil.svg" title="Brazil" alt="Brazil" onclick="flyToBrazil()" /></div>
-    <div class="flag-icon"><img class="icon" src="icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorldwide()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/croatia.svg" title="Croatia" alt="Croatia" onclick="flyToCroatia()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/italy.svg" title="Italy" alt="Italy" onclick="flyToItaly()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/vatican.svg" title="Vatican" alt="Vatican" onclick="flyToVatican()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/paraguay.svg" title="Paraguay" alt="Paraguay" onclick="flyToParaguay()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/argentina.svg" title="Argentina" alt="Argentina" onclick="flyToArgentina()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/united-states.svg" title="United States" alt="United States" onclick="flyToUSA()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/brazil.svg" title="Brazil" alt="Brazil" onclick="flyToBrazil()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorldwide()" /></div>
 </div>
 
 <div class="map-switcher">
@@ -59,10 +59,6 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
     });
 
     map.addControl(new mapboxgl.NavigationControl());
-
-    function openExhibits() {
-        window.location.replace("https://hpfilho.github.io/map/exhibits/")
-    }
 
     var layerList = document.getElementById('menu');
     var inputs = layerList.getElementsByTagName('input');
@@ -713,4 +709,3 @@ src="https://www.statcounter.com/counter/counter.js" async></script>
 
 </body>
 </html>
-

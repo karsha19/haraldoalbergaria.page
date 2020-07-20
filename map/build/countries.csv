@@ -1,0 +1,10 @@
+Icon,Country,Function,Longitude,Latitude,Zoom
+---------------------------------------------------------
+worldwide.svg,Worldwide,showWorldwide,-40,15,1.8
+brazil.svg,Brazil,flyToBrazil,-47.942175,-15.720065,3.5
+united-states.svg,United States,flyToUSA,-98.353336,38.001705,3.5
+argentina.svg,Argentina,flyToArgentina,-54.514142,-25.632677,11.0
+paraguay.svg,Paraguay,flyToParaguay,-54.593004,-25.410668,15.0
+vatican.svg,Vatican,flyToVatican,12.452778,41.904047,15.5
+italy.svg,Italy,flyToItaly,13.663935,41.369012,6.7
+croatia.svg,Croatia,flyToCroatia,16.494044,44.39349,6.3
