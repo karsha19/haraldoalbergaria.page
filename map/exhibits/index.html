@@ -8,6 +8,12 @@
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
   <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
   <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+  <style>
+  body { margin: 0; padding: 0; }
+  #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  #menu { position: absolute; background: #fff; padding: 10px;
+  font-family: 'Open Sans', sans-serif; cursor: default; }
+  </style>
 </head>
 
 <body>
@@ -23,10 +29,10 @@
   </div>
 
   <div class="exhibits-countries-panel">
-    <div class="flag-icon"><img class="icon" src="../icons/scotland.svg" title="Scotland" alt="Scotland" onclick="flyToScotland()" /></div>
-    <div class="flag-icon"><img class="icon" src="../icons/hungary.svg" title="Hungary" alt="Hungary" onclick="flyToHungary()" /></div>
-    <div class="flag-icon"><img class="icon" src="../icons/greece.svg" title="Greece" alt="Greece" onclick="flyToGreece()" /></div>
-    <div class="flag-icon"><img class="icon" src="../icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorld()" /></div>
+    <div class="flag-icon"><img class="icon" src="../icons/scotland.svg" title="Scotland" alt="Scotland" onclick="flyToScotland()"/></div>
+    <div class="flag-icon"><img class="icon" src="../icons/hungary.svg" title="Hungary" alt="Hungary" onclick="flyToHungary()"/></div>
+    <div class="flag-icon"><img class="icon" src="../icons/greece.svg" title="Greece" alt="Greece" onclick="flyToGreece()"/></div>
+    <div class="flag-icon"><img class="icon" src="../icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorldwide()"/></div>
   </div>
 
   <div class="map-switcher">
@@ -73,11 +79,11 @@
   function addMarker(value) {
     new mapboxgl.Marker({color:'#034081',scale:0.7,draggable:false})
     .setLngLat(value[0])
-    .setPopup(new mapboxgl.Popup({closeButton:false,closeOnMove:true,maxWidth:'566px'}).setHTML(value[1]))
+    .setPopup(new mapboxgl.Popup({closeButton:false,maxWidth:'566px'}).setHTML(value[1]))
     .addTo(map);
   }
 
-  function showWorld() {
+  function showWorldwide() {
     map.flyTo({
       center: [10, 30],
       zoom: 1.8
@@ -86,21 +92,21 @@
 
   function flyToGreece() {
     map.flyTo({
-      center: [23.726696, 37.984387],
+      center: [23.726696,  37.984387],
       zoom: 5.0
     });
   }
 
   function flyToHungary() {
     map.flyTo({
-      center: [19.086259, 47.537395],
+      center: [19.086259,  47.537395],
       zoom: 7.0
     });
   }
 
   function flyToScotland() {
     map.flyTo({
-      center: [-4.115885, 55.713086],
+      center: [-4.115885,  55.713086],
       zoom: 7.0
     });
   }
@@ -108,11 +114,10 @@
   function getLocations() {
 
     var locations = [];
-
-    locations.push([[23.740163, 38.002117], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com\" target=\"_blank\">Blank Wall Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.blankwallgallery.com/exhibition-monochrome-2020/#jp-carousel-11870\" target=\"_blank\">2020 Monochrome</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-moments-color/#jp-carousel-10187\" target=\"_blank\">2019 Moments of Color</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-street-photography-2019/#jp-carousel-9748\" target=\"_blank\">2019 Street Photography</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-black-white-2019/#jp-carousel-8846\" target=\"_blank\">2019 Black & White</a></div></div>"]);
-    locations.push([[-4.257888, 55.865262], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"https://www.glasgowgalleryofphotography.com/\" target=\"_blank\">Glasgow Photo Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.flickr.com/photos/hpfilho/49382297362/\" target=\"_blank\">2020 Seascape</a></div></div>"]);
-    locations.push([[24.019707, 35.518508], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"http://www.cipfestival.com/\" target=\"_blank\">Cip Festival</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.cipfestival.com/participating-artists-2019/#jp-carousel-5786\" target=\"_blank\">2019 Monochrome</a></div></div>"]);
-    locations.push([[19.066552, 47.482346], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"https://www.ph21gallery.com/\" target=\"_blank\">PH21 Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.ph21gallery.com/shape-of-things-19?lightbox=dataItem-juu2ee2x\" target=\"_blank\">2019 The Shape of Things</a></div></div>"]);
+    locations.push([[23.740163, 38.002117], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com\" target=\"_blank\">Blank Wall Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-moments-color/#jp-carousel-10187\" target=\"_blank\">2019 Moments of Color</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-street-photography-2019/#jp-carousel-9748\" target=\"_blank\">2019 Street Photography</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-black-white-2019/#jp-carousel-8846\" target=\"_blank\">2019 Black & White</a></div></div>"]);
+    locations.push([[19.066552, 47.482346], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"https://www.ph21gallery.com\" target=\"_blank\">PH21 Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.ph21gallery.com/shape-of-things-19?lightbox=dataItem-juu2ee2x\" target=\"_blank\">2019 The Shape of Things</a></div></div>"]);
+    locations.push([[24.019707, 35.518508], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"http://www.cipfestival.com\" target=\"_blank\">Cip Festival</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.cipfestival.com/participating-artists-2019/#jp-carousel-5786\" target=\"_blank\">2019 Monochrome</a></div></div>"]);
+    locations.push([[-4.257888, 55.865262], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"https://www.glasgowgalleryofphotography.com\" target=\"_blank\">Glasgow Photo Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.flickr.com/photos/hpfilho/49382297362\" target=\"_blank\">2020 Seascape</a></div></div>"]);
 
     return locations;
 
@@ -134,7 +139,7 @@ src="https://www.statcounter.com/counter/counter.js" async></script>
 <noscript><div class="statcounter"><img class="statcounter"
   src="https://c.statcounter.com/12357551/0/b15a6b74/1/"
   alt="Web Analytics"></div></noscript>
-  <!-- End of Statcounter Code -->
+<!-- End of Statcounter Code -->
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 #
 #  File          : buildMap.pl
-#  Last modified : 07/20/20 6:55 PM
+#  Last modified : 07/19/20 6:55 PM
 #
 #  Developer     : Haraldo Albergaria Filho
 #
@@ -53,7 +53,7 @@ foreach (@map_file_lines) {
     print INDEX_FILE "</div>\n\n<div class=\"photos-countries-panel\">\n";
     for (my $i = @countries-1; $i > 1; $i--) {
       $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
-      print INDEX_FILE "    <div class=\"flag-icon\"><img class=\"icon\" src=\"icons/$1\" title=\"$2\" alt=\"$2\" onclick=\"$3()\" /></div>\n";
+      print INDEX_FILE "    <div class=\"flag-icon\"><img class=\"icon\" src=\"icons/$1\" title=\"$2\" alt=\"$2\" onclick=\"$3()\"/></div>\n";
     }
     print INDEX_FILE "</div>\n\n";
     print INDEX_FILE "<div class=\"map-switcher\">\n";
@@ -71,7 +71,7 @@ foreach (@map_file_lines) {
       print INDEX_FILE "        center: [$4, $5],\n";
       print INDEX_FILE "        zoom: $6\n";
       print INDEX_FILE "      })\;\n";
-      print INDEX_FILE "    }\n\n\n";
+      print INDEX_FILE "    }\n\n";
     }
   }
   if ( m/<\/body>/ ) {
