@@ -224,12 +224,14 @@ img {vertical-align: middle;}
   display: grid;
   grid-area: cities;
   text-align: left;
+  margin-bottom: 10px;
 }
 
 .parks {
   display: grid;
   grid-area: parks;
   text-align: left;
+  margin-bottom: 10px;
 }
 
 .about-title {
@@ -239,7 +241,7 @@ img {vertical-align: middle;}
   border-style: none none solid none;
   border-color: lightgrey;
   border-width: thin;
-  margin-bottom: 18px;
+  margin-bottom: 23px;
   padding-bottom: 5px;
   text-align: left;
 }
@@ -263,7 +265,7 @@ img {vertical-align: middle;}
   border-style: none none solid none;
   border-color: lightgrey;
   border-width: thin;
-  margin-bottom: 21px;
+  margin-bottom: 30px;
   padding-bottom: 5px;
   text-align: left;
 }
@@ -275,7 +277,7 @@ img {vertical-align: middle;}
   border-style: none none solid none;
   border-color: lightgrey;
   border-width: thin;
-  margin-bottom: -10px;
+  margin-bottom: -12px;
   padding-bottom: 5px;
   text-align: left;
   grid-column-start: 1;
@@ -289,7 +291,7 @@ img {vertical-align: middle;}
   border-style: none none solid none;
   border-color: lightgrey;
   border-width: thin;
-  margin-bottom: -10px;
+  margin-bottom: -12px;
   padding-bottom: 5px;
   text-align: left;
   grid-column-start: 1;
@@ -324,23 +326,23 @@ p.items-title {
   font-size: 14px;
   font-weight: bold;
   color: lightgrey;
-  margin-top: 30px;
-  margin-bottom: -3px;
+  margin-top: 35px;
+  margin-bottom: -8px;
   text-align: left;
 }
 
 p.item {
   font-size: 14px;
-  line-height: 0.5;
   text-align: left;
+  margin-bottom: -8px;
 }
 
 p.exhibit {
-  line-height:0.8;
+  margin-top: -5px;
 }
 
 p.about {
-  line-height:1.5;
+  line-height: 1.5;
   margin-top:-2px;
   text-align:justify;
 }
@@ -450,7 +452,7 @@ p.about {
 
   p.exhibit {
     line-height: 1.5;
-    margin-bottom: -5px;
+    margin-bottom: 15px;
   }
 
   #attributions {
