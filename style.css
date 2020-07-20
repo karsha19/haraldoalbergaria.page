@@ -410,31 +410,31 @@ p.about {
 
   .cities-column-1 {
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 1;
     margin-bottom: -12px;
   }
 
   .cities-column-2 {
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 1;
     margin-bottom: -12px;
   }
 
   .cities-column-3 {
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 1;
     margin-bottom: -12px;
   }
 
   .parks-column-1 {
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 1;
     margin-bottom: -12px;
   }
 
   .parks-column-2 {
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 1;
   }
 
   .grid-container {
