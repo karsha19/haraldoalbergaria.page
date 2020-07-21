@@ -51,7 +51,7 @@ foreach (@map_file_lines) {
   s/<--\sInsert\shere\sthe\sMapbox\sAPI\saccess\stoken\s-->/pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NlNmozZ3gwNWdxMnJwaHRveHNuMDE3In0.UFRldAO_nZrNCt6inNHDcQ/g;
   if ( m/\A<\/div>/ ) {
     print INDEX_FILE "</div>\n\n<div class=\"photos-countries-panel\">\n";
-    for (my $i = @countries-1; $i > 1; $i--) {
+    for (my $i = @countries-1; $i > 0; $i--) {
       $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
       print INDEX_FILE "    <div class=\"flag-icon\"><img class=\"icon\" src=\"icons/$1\" title=\"$2\" alt=\"$2\" onclick=\"$3()\"/></div>\n";
     }
@@ -64,7 +64,7 @@ foreach (@map_file_lines) {
     print INDEX_FILE "    Icons made by <a href=\"https://www.flaticon.com/authors/turkkub\" title=\"turkkub\" target=\"_blank\">turkkub</a> (World) and <a href=\"https://www.flaticon.com/authors/freepik\" title=\"Freepik\">Freepik</a> (Countries) from <a href=\"https://www.flaticon.com/\" title=\"Flaticon\" target=\"_blank\">www.flaticon.com</a>\n";
   }
   if ( m/function\sgetLocations/ ) {
-    for (my $i = 2; $i < @countries; $i++) {
+    for (my $i = 1; $i < @countries; $i++) {
       $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
       print INDEX_FILE "    function $3() {\n";
       print INDEX_FILE "      map.flyTo({\n";

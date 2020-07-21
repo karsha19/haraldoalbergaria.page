@@ -62,7 +62,7 @@ open INDEX_FILE, ">$index_file" or die "Can't open $index_file to write: $!\n";
 
 foreach (@map_file_lines) {
   if ( m/function\sgetLocations/ ) {
-    for (my $i = 2; $i < @countries; $i++) {
+    for (my $i = 1; $i < @countries; $i++) {
       $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
       print INDEX_FILE "  function $3() {\n";
       print INDEX_FILE "    map.flyTo({\n";
@@ -80,23 +80,21 @@ foreach (@map_file_lines) {
   }
   print INDEX_FILE $_;
   if ( m/exhibits-countries-panel/ ) {
-    for (my $i = @countries-1; $i > 1; $i--) {
+    for (my $i = @countries-1; $i > 0; $i--) {
       $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
       print INDEX_FILE "    <div class=\"flag-icon\"><img class=\"icon\" src=\"../icons/$1\" title=\"$2\" alt=\"$2\" onclick=\"$3()\"/></div>\n";
     }
   }
   if ( m/var\slocations\s=\s\[\]/ ) {
-    for (my $i = 2; $i < @galleries; $i++) {
+    for (my $i = 1; $i < @galleries; $i++) {
       $galleries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
       my $gallery = $1;
       my $gallery_exhibits = "[[$4, $5], \"<div class=\\\"exhibition\\\"><div class=\\\"gallery-name\\\"><a class=\\\"exhib\\\" href=\\\"$6\\\" target=\\\"_blank\\\">$1</a></div>";
-      for (my $i = @exhibits-1; $i > 1; $i--) {
-        $exhibits[$i] =~ /(.+),(.+),(.+),(.+)/;
-        my $exhib_year = $2;
-        my $exhib_name = $3;
-        my $exhib_page = $4;
+      for (my $i = @exhibits-1; $i > 0; $i--) {
+        $exhibits[$i] =~ /(.+),.+/;
         if ( $1 =~ $gallery) {
-          $gallery_exhibits = $gallery_exhibits."<div class=\\\"exhibition-name\\\"><a class=\\\"exhib\\\" href=\\\"$exhib_page\\\" target=\\\"_blank\\\">$exhib_year $exhib_name</a></div>";
+          $exhibits[$i] =~ /(.+),(.+),(.+),(.+)/;
+          $gallery_exhibits = $gallery_exhibits."<div class=\\\"exhibition-name\\\"><a class=\\\"exhib\\\" href=\\\"$4\\\" target=\\\"_blank\\\">$2 $3</a></div>";
         }
       }
       $gallery_exhibits = $gallery_exhibits."</div>\"]";
