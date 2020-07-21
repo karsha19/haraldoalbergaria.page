@@ -1,5 +1,5 @@
 Icon,Country,Function,Longitude,Latitude,Zoom
-worldwide.svg,Worldwide,showWorldwide,10,30,1.8
+worldwide.svg,Worldwide,showWorldwide,10,40,2.0
 greece.svg,Greece,flyToGreece,23.726696, 37.984387,5.0
 hungary.svg,Hungary,flyToHungary,19.086259, 47.537395,7.0
 scotland.svg,Scotland,flyToScotland,-4.115885, 55.713086,7.0

@@ -13,7 +13,7 @@
 
 my $countries_file  = "countries.csv";
 my $stats_file      = "statscounter";
-my $api_file        = "api_key";
+my $api_file        = "api_token";
 my $map_file        = "map.html";
 my $index_file      = "../index.html";
 
@@ -38,7 +38,7 @@ my @stats_lines = <STATS_FILE>;
 close STATS_FILE;
 
 open API_FILE, "$api_file" or die "Can't open $api_file to read: $!\n";
-my $api_key = <STATS_FILE>;
+my $api_token = <API_FILE>;
 close API_FILE;
 
 open MAP_FILE, "$map_file" or die "Can't open $map_file to read: $!\n";
@@ -48,7 +48,7 @@ close MAP_FILE;
 open INDEX_FILE, ">$index_file" or die "Can't open $index_file to write: $!\n";
 
 foreach (@map_file_lines) {
-  s/<--\sInsert\shere\sthe\sMapbox\sAPI\saccess\stoken\s-->/pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NlNmozZ3gwNWdxMnJwaHRveHNuMDE3In0.UFRldAO_nZrNCt6inNHDcQ/g;
+  s/<--\sInsert\shere\sthe\sMapbox\sAPI\saccess\stoken\s-->/$api_token/g;
   if ( m/\A<\/div>/ ) {
     print INDEX_FILE "</div>\n\n<div class=\"photos-countries-panel\">\n";
     for (my $i = @countries-1; $i > 0; $i--) {
