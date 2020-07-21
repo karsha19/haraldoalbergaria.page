@@ -12,6 +12,13 @@ img.icon {
   transition: width 0.25s, height 0.25s;
 }
 
+img.tiny_icon {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  padding-bottom: 3px;
+}
+
 img.icon:hover {
   width: 68px;
   height: 68px;
@@ -171,7 +178,7 @@ img {vertical-align: middle;}
 }
 
 
-/* Style of gear list overlay */
+/* Style of bio overlay */
 
 .overlay {
   height: 0%;
@@ -323,7 +330,7 @@ img {vertical-align: middle;}
 }
 
 p.items-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: lightgrey;
   margin-top: 35px;
