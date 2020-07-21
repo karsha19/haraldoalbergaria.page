@@ -212,7 +212,6 @@ img {vertical-align: middle;}
   width: 350px;
   text-align: left;
   padding-right: 20px;
-  margin-bottom: 30px;
 }
 
 .gear {
@@ -220,6 +219,7 @@ img {vertical-align: middle;}
   width: 350px;
   text-align: left;
   padding-left: 20px;
+  margin-bottom: 20px;
 }
 
 .exhibits {
