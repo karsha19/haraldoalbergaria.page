@@ -89,9 +89,9 @@
     <div class="slides fade"><img class="slide" onload="loadedImage()" src="https://live.staticflickr.com/438/20042493748_e19815faea_h.jpg"/></div>
 
     <div id="icons-panel">
-      <div class="icon" onclick="openInfo()"><img class="icon" src="icons/user.svg"/></div>
+      <div class="icon" onclick="openOverlay()"><img class="icon" src="icons/user.svg"/></div>
       <div class="icon"><a href="mailto:mailbox@haraldo-albergaria.photos"><img class="icon" src="icons/email.svg"/></a></div>
-      <div class="icon"><a href="https://hpfilho.github.io/map/"><img class="icon" src="icons/map.svg"/></a></div>
+      <div class="icon"><a href="https://haraldo-albergaria.photos/map/"><img class="icon" src="icons/map.svg"/></a></div>
       <div class="icon"><a href="https://flickr.com/photos/hpfilho" target="_blank"><img class="icon" src="icons/flickr.svg"/></a></div>
       <div class="icon"><a href="https://twitter.com/hpfilhoPhoto" target="_blank"><img class="icon" src="icons/twitter.svg"/></a></div>
       <div class="icon"><a href="https://facebook.com/hpfilhoExhibits" target="_blank"><img class="icon" src="icons/facebook.svg"/></a></div>
@@ -105,8 +105,8 @@
 
   </div>
 
-  <!-- Info overlay -->
-  <div id="info" onclick="closeInfo()" class="overlay">
+  <!-- Overlay overlay -->
+  <div id="overlay" onclick="closeOverlay()" class="overlay">
 
     <!-- Overlay content -->
     <div class="overlay-content">
@@ -153,7 +153,7 @@
         <div class="cities">
           <div class="cities-title">Cities Where I Have Photographed</div>
           <div class="cities-column-1">
-            <p class="items-title">Brazil</p>
+            <p class="items-title"><img class="tiny_icon" src="map/icons/brazil.svg"/> Brazil</p>
             <p class="item">Fernando de Noronha</p>
             <p class="item">Maceió</p>
             <p class="item">Florianópolis</i>
@@ -166,30 +166,30 @@
             <p class="item">Foz do Iguaçu</p>
             <p class="item">Analândia</p>
             <p class="item">Monte Verde</p>
-            <p class="items-title">Paraguay</p>
+            <p class="items-title"><img class="tiny_icon" src="map/icons/paraguay.svg"/> Paraguay</p>
             <p class="item">Ciudad del Este</p>
           </div>
           <div class="cities-column-2">
-            <p class="items-title">Argentina</p>
+            <p class="items-title"><img class="tiny_icon" src="map/icons/argentina.svg"/> Argentina</p>
             <p class="item">Puerto Iguazu</p>
-            <p class="items-title">United States</p>
+            <p class="items-title"><img class="tiny_icon" src="map/icons/united-states.svg"/> United States</p>
             <p class="item">Chicago</p>
             <p class="item">Austin</p>
             <p class="item">San Antonio</i>
             <p class="item">San Francisco</p>
             <p class="item">Monterey (Big Sur)</p>
             <p class="item">Mountain View</a>
-              <p class="items-title">Vatican</p>
+              <p class="items-title"><img class="tiny_icon" src="map/icons/vatican.svg"/> Vatican</p>
               <p class="item">Vatican City</p>
           </div>
           <div class="cities-column-3">
-            <p class="items-title">Italy</p>
+            <p class="items-title"><img class="tiny_icon" src="map/icons/italy.svg"/> Italy</p>
             <p class="item">Rome</p>
             <p class="item">Salerno</p>
             <p class="item">Pompeii</p>
             <p class="item">Positano</p>
             <p class="item">Amalfi</p>
-            <p class="items-title">Croatia</p>
+            <p class="items-title"><img class="tiny_icon" src="map/icons/croatia.svg"/> Croatia</p>
             <p class="item">Zagreb</p>
             <p class="item">Zadar</p>
             <p class="item">Šibenik</p>
@@ -202,20 +202,20 @@
        <div class="parks">
           <div class="parks-title" style="">Photographed Nature Parks</div>
           <div class="parks-column-1">
-            <p class="items-title">Brazil</p>
+            <p class="items-title"><img class="tiny_icon" src="map/icons/brazil.svg"/> Brazil</p>
             <p class="item">Caracol State Park</p>
             <p class="item">Aparados da Serra National Park</p>
             <p class="item">Iguaçu National Park</i>
             <p class="item">Fernando de Noronha Marine National Park</p>
-            <p class="items-title">Argentina</p>
+            <p class="items-title"><img class="tiny_icon" src="map/icons/argentina.svg"/> Argentina</p>
             <p class="item">Iguazu National Park</p>
           </div>
           <div class="parks-column-2">
-            <p class="items-title">United States</p>
+            <p class="items-title"><img class="tiny_icon" src="map/icons/united-states.svg"/> United States</p>
             <p class="item">Yosemite National Park</p>
             <p class="item">Sequoia National Park</i>
             <p class="item">Kings Canyon National Park</i>
-            <p class="items-title">Croatia</p>
+            <p class="items-title"><img class="tiny_icon" src="map/icons/croatia.svg"/> Croatia</p>
             <p class="item">Plitvice Lakes National Park</p>
             <p class="item">Krka National Park</p>
           </div>
@@ -292,15 +292,15 @@
    }
 
 
-   function openInfo() {
-     document.getElementById("info").style.height = "100%";
+   function openOverlay() {
+     document.getElementById("overlay").style.height = "100%";
      document.getElementById("title").style.display = "none";
      document.getElementById("icons-panel").style.display = "none";
      document.getElementById("attributions").style.display = "none";
    }
 
-   function closeInfo() {
-     document.getElementById("info").style.height = "0%";
+   function closeOverlay() {
+     document.getElementById("overlay").style.height = "0%";
      document.getElementById("title").style.display = "block";
      document.getElementById("icons-panel").style.display = "grid";
      document.getElementById("attributions").style.display = "block";
@@ -308,7 +308,7 @@
 
    window.onkeyup = function (event) {
      if (event.keyCode == 27) {
-       closeInfo();
+       closeOverlay();
      }
    }
 

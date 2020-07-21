@@ -120,9 +120,9 @@ a.exhib:hover {
   display: grid;
   position: fixed;
   bottom: 0;
-  left: 16px;
+  left: 10px;
   width: 32px;
-  margin: 0 0 50px -6px;
+  margin-bottom: 50px;
   padding: 10px;
   grid-row-gap: 7px;
   border-radius: 20px;
