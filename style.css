@@ -12,13 +12,6 @@ img.icon {
   transition: width 0.25s, height 0.25s;
 }
 
-img.tiny_icon {
-  width: 20px;
-  height: 20px;
-  margin: 0px 2px 0px -2px;
-  padding-bottom: 4px;
-}
-
 img.icon:hover {
   width: 68px;
   height: 68px;
@@ -284,7 +277,7 @@ img {vertical-align: middle;}
   border-style: none none solid none;
   border-color: lightgrey;
   border-width: thin;
-  margin-bottom: -12px;
+  margin-bottom: -10px;
   padding-bottom: 5px;
   text-align: left;
   grid-column-start: 1;
@@ -298,7 +291,7 @@ img {vertical-align: middle;}
   border-style: none none solid none;
   border-color: lightgrey;
   border-width: thin;
-  margin-bottom: -12px;
+  margin-bottom: -10px;
   padding-bottom: 5px;
   text-align: left;
   grid-column-start: 1;
@@ -354,6 +347,13 @@ p.about {
   line-height: 1.5;
   margin-top:-2px;
   text-align:justify;
+}
+
+img.tiny_icon {
+  width: 20px;
+  height: 20px;
+  margin: 0px 7px 0px -2px;
+  padding-bottom: 4px;
 }
 
 .grid-container {
