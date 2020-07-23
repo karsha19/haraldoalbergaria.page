@@ -81,8 +81,7 @@ foreach (@map_file_lines) {
     print INDEX_FILE "\n";
   }
   print INDEX_FILE $_;
-  if ( m/meta charset="utf-8"/ ) {
-    print INDEX_FILE "  <title>Haraldo Albergaria | Photos Map</title>\n";
+  if ( m/<title>/ ) {
     print INDEX_FILE "  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"../icons/favicon.ico\">\n";
     print INDEX_FILE "  <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\" />\n";
   }
