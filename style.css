@@ -82,7 +82,7 @@ p.subtitle {
 
 #attributions {
   position: fixed;
-  bottom: 10px;
+  bottom: 5px;
   width: 100%;
   z-index: 1;
   font-size: 7px;
@@ -466,7 +466,7 @@ img.tiny_icon {
   }
 
   #attributions {
-    padding: 0 15% 0 15%;
+    padding: 0 10% 0 10%;
   }
 
   .overlay-content {
