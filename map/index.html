@@ -36,6 +36,7 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
     <div class="flag-icon"><img class="icon" src="icons/argentina.svg" title="Argentina" alt="Argentina" onclick="flyToArgentina()"/></div>
     <div class="flag-icon"><img class="icon" src="icons/united-states.svg" title="United States" alt="United States" onclick="flyToUSA()"/></div>
     <div class="flag-icon"><img class="icon" src="icons/brazil.svg" title="Brazil" alt="Brazil" onclick="flyToBrazil()"/></div>
+    <div class="flag-icon"><img class="icon" src="icons/european-union.svg" title="European Union" alt="European Union" onclick=" showEurope()"/></div>
     <div class="flag-icon"><img class="icon" src="icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorldwide()"/></div>
 </div>
 
@@ -91,6 +92,13 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
       map.flyTo({
         center: [-40, 15],
         zoom: 1.8
+      });
+    }
+
+    function  showEurope() {
+      map.flyTo({
+        center: [19.664210, 56.467782],
+        zoom: 3.0
       });
     }
 
