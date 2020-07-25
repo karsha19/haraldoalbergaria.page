@@ -33,7 +33,6 @@
     <div class="flag-icon"><img class="icon" src="../icons/hungary.svg" title="Hungary" alt="Hungary" onclick="flyToHungary()"/></div>
     <div class="flag-icon"><img class="icon" src="../icons/greece.svg" title="Greece" alt="Greece" onclick="flyToGreece()"/></div>
     <div class="flag-icon"><img class="icon" src="../icons/european-union.svg" title="European Union" alt="European Union" onclick="showEurope()"/></div>
-    <div class="flag-icon"><img class="icon" src="../icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorldwide()"/></div>
   </div>
 
   <div class="map-switcher">
@@ -82,13 +81,6 @@
     .setLngLat(value[0])
     .setPopup(new mapboxgl.Popup({closeButton:false,maxWidth:'566px'}).setHTML(value[1]))
     .addTo(map);
-  }
-
-  function showWorldwide() {
-    map.flyTo({
-      center: [10, 40],
-      zoom: 2.0
-    });
   }
 
   function showEurope() {
