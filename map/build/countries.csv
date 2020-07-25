@@ -1,7 +1,7 @@
 Icon,Country,Function,Longitude,Latitude,Zoom
 worldwide.svg,Worldwide,showWorldwide,0,30,1.5
 european-union.svg,European Union,showEurope,20,56,3.0
-brazil.svg,Brazil,flyToBrazil,-54,-16,3.0
+brazil.svg,Brazil,flyToBrazil,-54,-16,3.5
 united-states.svg,United States,flyToUSA,-95,38,3.5
 argentina.svg,Argentina,flyToArgentina,-65,-41,3.5
 paraguay.svg,Paraguay,flyToParaguay,-58,-24,5.5
