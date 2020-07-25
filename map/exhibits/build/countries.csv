@@ -1,5 +1,5 @@
 Icon,Country,Function,Longitude,Latitude,Zoom
 european-union.svg,European Union,showEurope,20,56,3.0
-greece.svg,Greece,flyToGreece,23.726696, 37.984387,5.0
-hungary.svg,Hungary,flyToHungary,19.086259, 47.537395,7.0
-scotland.svg,Scotland,flyToScotland,-4.115885, 55.713086,7.0
+greece.svg,Greece,flyToGreece,24,38,5.5
+hungary.svg,Hungary,flyToHungary,19.5,47,6.5
+scotland.svg,Scotland,flyToScotland,-3.6,56.5,5.7
