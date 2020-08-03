@@ -55,6 +55,7 @@
     zoom: 1.5
   });
 
+  map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')})); 
   map.addControl(new mapboxgl.NavigationControl());
 
   function openPhotos() {
