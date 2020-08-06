@@ -43,12 +43,16 @@
   <script>
 
   mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
+
   var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [0, 30],
-    zoom: 1.5
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11'
   });
+
+  map.fitBounds([
+      [-168, -58],
+      [180, 82]
+  ]);
 
   map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')})); 
   map.addControl(new mapboxgl.NavigationControl());

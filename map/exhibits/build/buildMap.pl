@@ -64,12 +64,18 @@ foreach (@map_file_lines) {
   if ( m/function\sgetLocations/ ) {
     for (my $i = 1; $i < @countries; $i++) {
       $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
-      print INDEX_FILE "  function $3() {\n";
-      print INDEX_FILE "    map.flyTo({\n";
-      print INDEX_FILE "      center: [$4, $5],\n";
-      print INDEX_FILE "      zoom: $6\n";
-      print INDEX_FILE "    })\;\n";
-      print INDEX_FILE "  }\n\n";
+      $west = $3; 
+      $south = $4;
+      $east = $5;
+      $north = $6;
+      $func = $2;
+      $func =~ s/\s//;
+      print INDEX_FILE "  function show$func() {\n";
+      print INDEX_FILE "    map.fitBounds([\n";
+      print INDEX_FILE "      [$west, $south],\n";
+      print INDEX_FILE "      [$east, $north]\n";
+      print INDEX_FILE "    ])\;\n";
+      print INDEX_FILE "  }\;\n\n";
     }
   }
   if ( m/<\/body>/ ) {
@@ -82,7 +88,11 @@ foreach (@map_file_lines) {
   if ( m/exhibits-countries-panel/ ) {
     for (my $i = @countries-1; $i > 0; $i--) {
       $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
-      print INDEX_FILE "    <div class=\"flag-icon\"><img class=\"icon\" src=\"../icons/$1\" title=\"$2\" alt=\"$2\" onclick=\"$3()\"/></div>\n";
+      $icon = $1;
+      $country = $2;
+      $func = $2;
+      $func =~ s/\s//;
+      print INDEX_FILE "    <div class=\"flag-icon\"><img class=\"icon\" src=\"../icons/$icon\" title=\"$country\" alt=\"$country\" onclick=\"show$func()\"/></div>\n";
     }
   }
   if ( m/var\slocations\s=\s\[\]/ ) {

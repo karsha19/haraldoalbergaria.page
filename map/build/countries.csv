@@ -1,10 +1,10 @@
-Icon,Country,Function,Longitude,Latitude,Zoom
-worldwide.svg,Worldwide,showWorldwide,0,30,1.5
-european-union.svg,European Union,showEurope,20,56,3.0
-brazil.svg,Brazil,flyToBrazil,-54,-16,3.5
-united-states.svg,United States,flyToUSA,-95,38,3.5
-argentina.svg,Argentina,flyToArgentina,-65,-41,3.5
-paraguay.svg,Paraguay,flyToParaguay,-58,-24,5.5
-vatican.svg,Vatican,flyToVatican,12.453,41.904,15.0
-italy.svg,Italy,flyToItaly,13,42,5.2
-croatia.svg,Croatia,flyToCroatia,16.5,44.5,6.5
+Icon,Country,West,South,East,North
+worldwide.svg,Worldwide,-168,-58,180,82
+european-union.svg,European Union,-37,30,65,72
+brazil.svg,Brazil,-82,-37,-25,8
+united-states.svg,United States,-130,24,-62,52
+argentina.svg,Argentina,-82,-57,-49,-20
+paraguay.svg,Paraguay,-67,-29,-50,-18
+vatican.svg,Vatican,12.443,41.899,12.461,41.908
+italy.svg,Italy,5,36,20,48
+croatia.svg,Croatia,12,42,20,47

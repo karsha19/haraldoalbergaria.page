@@ -49,11 +49,16 @@ open INDEX_FILE, ">$index_file" or die "Can't open $index_file to write: $!\n";
 
 foreach (@map_file_lines) {
   s/<--\sInsert\shere\sthe\sMapbox\sAPI\saccess\stoken\s-->/$api_token/g;
+  s/H\.\sP\.\sFilho/Haraldo Albergaria/g;
   if ( m/\A<\/div>/ ) {
     print INDEX_FILE "</div>\n\n<div class=\"photos-countries-panel\">\n";
     for (my $i = @countries-1; $i > 0; $i--) {
       $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
-      print INDEX_FILE "    <div class=\"flag-icon\"><img class=\"icon\" src=\"icons/$1\" title=\"$2\" alt=\"$2\" onclick=\"$3()\"/></div>\n";
+      $icon = $1;
+      $country = $2;
+      $func = $2;
+      $func =~ s/\s//;
+      print INDEX_FILE "    <div class=\"flag-icon\"><img class=\"icon\" src=\"icons/$icon\" title=\"$country\" alt=\"$country\" onclick=\"show$func()\"/></div>\n";
     }
     print INDEX_FILE "</div>\n\n";
     print INDEX_FILE "<div class=\"map-switcher\">\n";
@@ -66,12 +71,18 @@ foreach (@map_file_lines) {
   if ( m/function\sgetLocations/ ) {
     for (my $i = 1; $i < @countries; $i++) {
       $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
-      print INDEX_FILE "    function $3() {\n";
-      print INDEX_FILE "      map.flyTo({\n";
-      print INDEX_FILE "        center: [$4, $5],\n";
-      print INDEX_FILE "        zoom: $6\n";
-      print INDEX_FILE "      })\;\n";
-      print INDEX_FILE "    }\n\n";
+      $west = $3;
+      $south = $4;
+      $east = $5;
+      $north = $6;
+      $func = $2;      
+      $func =~ s/\s//;
+      print INDEX_FILE "    function show$func() {\n";
+      print INDEX_FILE "      map.fitBounds([\n";
+      print INDEX_FILE "        [$west, $south],\n";
+      print INDEX_FILE "        [$east, $north]\n";
+      print INDEX_FILE "      ])\;\n";
+      print INDEX_FILE "    }\;\n\n";
     }
   }
   if ( m/<\/body>/ ) {
