@@ -29,10 +29,10 @@
   </div>
 
   <div class="exhibits-countries-panel">
-    <div class="flag-icon"><img class="icon" src="../icons/scotland.svg" title="Scotland" alt="Scotland" onclick="flyToScotland()"/></div>
-    <div class="flag-icon"><img class="icon" src="../icons/hungary.svg" title="Hungary" alt="Hungary" onclick="flyToHungary()"/></div>
-    <div class="flag-icon"><img class="icon" src="../icons/greece.svg" title="Greece" alt="Greece" onclick="flyToGreece()"/></div>
-    <div class="flag-icon"><img class="icon" src="../icons/european-union.svg" title="European Union" alt="European Union" onclick="showEurope()"/></div>
+    <div class="flag-icon"><img class="icon" src="../icons/scotland.svg" title="Scotland" alt="Scotland" onclick="showScotland()"/></div>
+    <div class="flag-icon"><img class="icon" src="../icons/hungary.svg" title="Hungary" alt="Hungary" onclick="showHungary()"/></div>
+    <div class="flag-icon"><img class="icon" src="../icons/greece.svg" title="Greece" alt="Greece" onclick="showGreece()"/></div>
+    <div class="flag-icon"><img class="icon" src="../icons/european-union.svg" title="European Union" alt="European Union" onclick="showEuropeanUnion()"/></div>
     <div class="flag-icon"><img class="icon" src="../icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorldwide()"/></div>
   </div>
 
@@ -48,12 +48,16 @@
   <script>
 
   mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
+
   var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [0, 30],
-    zoom: 1.5
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11'
   });
+
+  map.fitBounds([
+      [-168, -58],
+      [180, 82]
+  ]);
 
   map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')})); 
   map.addControl(new mapboxgl.NavigationControl());
@@ -86,39 +90,39 @@
   }
 
   function showWorldwide() {
-    map.flyTo({
-      center: [0, 30],
-      zoom: 1.5
-    });
-  }
+    map.fitBounds([
+      [-168, -58],
+      [180, 82]
+    ]);
+  };
 
-  function showEurope() {
-    map.flyTo({
-      center: [20, 56],
-      zoom: 3.0
-    });
-  }
+  function showEuropeanUnion() {
+    map.fitBounds([
+      [-37, 30],
+      [65, 72]
+    ]);
+  };
 
-  function flyToGreece() {
-    map.flyTo({
-      center: [24, 38],
-      zoom: 5.5
-    });
-  }
+  function showGreece() {
+    map.fitBounds([
+      [18, 34],
+      [31, 43]
+    ]);
+  };
 
-  function flyToHungary() {
-    map.flyTo({
-      center: [19.5, 47],
-      zoom: 6.5
-    });
-  }
+  function showHungary() {
+    map.fitBounds([
+      [15, 45],
+      [24, 49]
+    ]);
+  };
 
-  function flyToScotland() {
-    map.flyTo({
-      center: [-3.8, 56.5],
-      zoom: 6.0
-    });
-  }
+  function showScotland() {
+    map.fitBounds([
+      [-10, 54],
+      [3, 59]
+    ]);
+  };
 
   function getLocations() {
 
