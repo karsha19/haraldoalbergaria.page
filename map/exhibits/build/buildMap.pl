@@ -63,12 +63,12 @@ open INDEX_FILE, ">$index_file" or die "Can't open $index_file to write: $!\n";
 foreach (@map_file_lines) {
   if ( m/function\sgetLocations/ ) {
     for (my $i = 1; $i < @countries; $i++) {
-      $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
-      $west = $3; 
-      $south = $4;
-      $east = $5;
-      $north = $6;
-      $func = $2;
+      $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+)/;
+      $west = $2; 
+      $south = $3;
+      $east = $4;
+      $north = $5;
+      $func = $1;
       $func =~ s/\s//;
       print INDEX_FILE "  function show$func() {\n";
       print INDEX_FILE "    map.fitBounds([\n";
@@ -87,10 +87,12 @@ foreach (@map_file_lines) {
   print INDEX_FILE $_;
   if ( m/exhibits-countries-panel/ ) {
     for (my $i = @countries-1; $i > 0; $i--) {
-      $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+),(.+)/;
+      $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+)/;
+      $country = $1;
       $icon = $1;
-      $country = $2;
-      $func = $2;
+      $func = $1;
+      $icon =~ s/\s/-/;
+      $icon = lc $icon.".svg";
       $func =~ s/\s//;
       print INDEX_FILE "    <div class=\"flag-icon\"><img class=\"icon\" src=\"../icons/$icon\" title=\"$country\" alt=\"$country\" onclick=\"show$func()\"/></div>\n";
     }

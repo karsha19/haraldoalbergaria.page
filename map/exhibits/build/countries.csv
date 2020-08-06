@@ -1,6 +1,6 @@
-Icon,Country,West,South,East,North
-worldwide.svg,Worldwide,-168,-58,180,82
-european-union.svg,European Union,-37,30,65,72
-greece.svg,Greece,18,34,31,43
-hungary.svg,Hungary,15,45,24,49
-scotland.svg,Scotland,-10,54,3,59
+Country,West,South,East,North
+Worldwide,-168,-58,180,82
+European Union,-37,30,65,72
+Greece,18,34,31,43
+Hungary,15,45,24,49
+Scotland,-10,54,3,59
