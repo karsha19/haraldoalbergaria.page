@@ -73,8 +73,9 @@ foreach (@map_file_lines) {
       print INDEX_FILE "  function show$func() {\n";
       print INDEX_FILE "    map.fitBounds([\n";
       print INDEX_FILE "      [$west, $south],\n";
-      print INDEX_FILE "      [$east, $north]\n";
-      print INDEX_FILE "    ])\;\n";
+      print INDEX_FILE "      [$east, $north]],\n";
+      print INDEX_FILE "      {padding:50}\n";
+      print INDEX_FILE "    )\;\n";
       print INDEX_FILE "  }\;\n\n";
     }
   }
