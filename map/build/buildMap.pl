@@ -70,7 +70,7 @@ foreach (@map_file_lines) {
     print INDEX_FILE "<div class=\"attribution\">\n";
     print INDEX_FILE "    Icons made by <a href=\"https://www.flaticon.com/authors/turkkub\" title=\"turkkub\" target=\"_blank\">turkkub</a> (World) and <a href=\"https://www.flaticon.com/authors/freepik\" title=\"Freepik\">Freepik</a> (Countries) from <a href=\"https://www.flaticon.com/\" title=\"Flaticon\" target=\"_blank\">www.flaticon.com</a>\n";
   }
-  if ( m/function\sgetLocations/ ) {
+  if ( m/^<\/script>/ ) {
     for (my $i = 1; $i < @countries; $i++) {
       $countries[$i] =~ /(.+),(.+),(.+),(.+),(.+)/;
       $west = $2;
@@ -82,8 +82,9 @@ foreach (@map_file_lines) {
       print INDEX_FILE "    function show$func() {\n";
       print INDEX_FILE "        map.fitBounds([\n";
       print INDEX_FILE "          [$west, $south],\n";
-      print INDEX_FILE "          [$east, $north]\n";
-      print INDEX_FILE "        ])\;\n";
+      print INDEX_FILE "          [$east, $north]],\n";
+      print INDEX_FILE "          {padding: 50}\n";
+      print INDEX_FILE "        )\;\n";
       print INDEX_FILE "    }\;\n\n";
     }
   }
