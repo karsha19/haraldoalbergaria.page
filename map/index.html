@@ -21,17 +21,7 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
 
 <body>
 
-<div class="photos-countries-panel">
-    <div class="flag-icon"><img id="HR" class="icon" src="icons/croatia.svg" title="Croatia" alt="Croatia"/></div>
-    <div class="flag-icon"><img id="IT" class="icon" src="icons/italy.svg" title="Italy" alt="Italy"/></div>
-    <div class="flag-icon"><img id="VA" class="icon" src="icons/vatican.svg" title="Vatican" alt="Vatican"/></div>
-    <div class="flag-icon"><img id="PY" class="icon" src="icons/paraguay.svg" title="Paraguay" alt="Paraguay"/></div>
-    <div class="flag-icon"><img id="AR" class="icon" src="icons/argentina.svg" title="Argentina" alt="Argentina"/></div>
-    <div class="flag-icon"><img id="US" class="icon" src="icons/united-states.svg" title="United States" alt="United States"/></div>
-    <div class="flag-icon"><img id="BR" class="icon" src="icons/brazil.svg" title="Brazil" alt="Brazil"/></div>
-    <div class="flag-icon"><img id="EU" class="icon" src="icons/european-union.svg" title="European Union" alt="European Union"/></div>
-    <div class="flag-icon"><img id="WW" class="icon" src="icons/worldwide.svg" title="Worldwide" alt="Worldwide"/></div>
-</div>
+<div id="panel" class="photos-countries-panel"></div>
 
 <div id="map"></div>
 <div id="menu">
@@ -54,13 +44,39 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
 
 <script>
 
-    document.getElementById('HR').addEventListener('click', function() { fitRegion('HR') });
-    document.getElementById('IT').addEventListener('click', function() { fitRegion('IT') });
-    document.getElementById('VA').addEventListener('click', function() { fitRegion('VA') });
-    document.getElementById('PY').addEventListener('click', function() { fitRegion('PY') });
-    document.getElementById('AR').addEventListener('click', function() { fitRegion('AR') });
-    document.getElementById('US').addEventListener('click', function() { fitRegion('US') });
-    document.getElementById('BR').addEventListener('click', function() { fitRegion('BR') });
+    for (var i = countries.length-1; i >= 0; i--) {
+        var country_code = countries[i][0];
+        createIcon(country_code);
+    }
+    
+    createIcon('EU');
+    createIcon('WW');
+
+    function createIcon(country_code) {
+        var country_name = countries_bbox[country_code][0];
+        var elem = document.createElement("IMG");
+        elem.setAttribute("id", country_code);
+        elem.setAttribute("class", "icon");
+        elem.setAttribute("src", getIconSrc(country_name));
+        elem.setAttribute("title", country_name);
+        elem.setAttribute("alt", country_name);
+        var div = document.createElement("DIV");
+        div.setAttribute("class", "flag-icon");
+        div.appendChild(elem);
+        document.getElementById("panel").appendChild(div);
+    }
+
+    function getIconSrc(name) {
+      return "icons/".concat(name.replace(" ", "-").toLowerCase()).concat(".svg");
+    }
+
+    countries.forEach(addListener);
+
+    function addListener(country) {
+      var country_code = country[0];
+      document.getElementById(country_code).addEventListener('click', function() { fitRegion(country_code) });
+    }
+
     document.getElementById('EU').addEventListener('click', function() { fitRegion('EU') });
     document.getElementById('WW').addEventListener('click', function() { fitRegion('WW') });
 
