@@ -21,26 +21,26 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
 
 <body>
 
-<div id="map"></div>
-<div id="menu">
-<input id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked" />
-<label for="streets-v11">streets</label>
-<input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
-<label for="outdoors-v11">outdoors</label>
-<input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
-<label for="satellite-v9">satellite</label>
+<div class="photos-countries-panel">
+    <div class="flag-icon"><img id="HR" class="icon" src="icons/croatia.svg" title="Croatia" alt="Croatia"/></div>
+    <div class="flag-icon"><img id="IT" class="icon" src="icons/italy.svg" title="Italy" alt="Italy"/></div>
+    <div class="flag-icon"><img id="VA" class="icon" src="icons/vatican.svg" title="Vatican" alt="Vatican"/></div>
+    <div class="flag-icon"><img id="PY" class="icon" src="icons/paraguay.svg" title="Paraguay" alt="Paraguay"/></div>
+    <div class="flag-icon"><img id="AR" class="icon" src="icons/argentina.svg" title="Argentina" alt="Argentina"/></div>
+    <div class="flag-icon"><img id="US" class="icon" src="icons/united-states.svg" title="United States" alt="United States"/></div>
+    <div class="flag-icon"><img id="BR" class="icon" src="icons/brazil.svg" title="Brazil" alt="Brazil"/></div>
+    <div class="flag-icon"><img id="EU" class="icon" src="icons/european-union.svg" title="European Union" alt="European Union"/></div>
+    <div class="flag-icon"><img id="WW" class="icon" src="icons/worldwide.svg" title="Worldwide" alt="Worldwide"/></div>
 </div>
 
-<div class="photos-countries-panel">
-    <div class="flag-icon"><img class="icon" src="icons/croatia.svg" title="Croatia" alt="Croatia" onclick="showCroatia()"/></div>
-    <div class="flag-icon"><img class="icon" src="icons/italy.svg" title="Italy" alt="Italy" onclick="showItaly()"/></div>
-    <div class="flag-icon"><img class="icon" src="icons/vatican.svg" title="Vatican" alt="Vatican" onclick="showVatican()"/></div>
-    <div class="flag-icon"><img class="icon" src="icons/paraguay.svg" title="Paraguay" alt="Paraguay" onclick="showParaguay()"/></div>
-    <div class="flag-icon"><img class="icon" src="icons/argentina.svg" title="Argentina" alt="Argentina" onclick="showArgentina()"/></div>
-    <div class="flag-icon"><img class="icon" src="icons/united-states.svg" title="United States" alt="United States" onclick="showUnitedStates()"/></div>
-    <div class="flag-icon"><img class="icon" src="icons/brazil.svg" title="Brazil" alt="Brazil" onclick="showBrazil()"/></div>
-    <div class="flag-icon"><img class="icon" src="icons/european-union.svg" title="European Union" alt="European Union" onclick="showEuropeanUnion()"/></div>
-    <div class="flag-icon"><img class="icon" src="icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorldwide()"/></div>
+<div id="map"></div>
+<div id="menu">
+    <input id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked" />
+    <label for="streets-v11">streets</label>
+    <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
+    <label for="outdoors-v11">outdoors</label>
+    <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+    <label for="satellite-v9">satellite</label>
 </div>
 
 <div class="map-switcher">
@@ -54,8 +54,19 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
 
 <script>
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
-    
+    document.getElementById('HR').addEventListener('click', function() { fitRegion('HR') });
+    document.getElementById('IT').addEventListener('click', function() { fitRegion('IT') });
+    document.getElementById('VA').addEventListener('click', function() { fitRegion('VA') });
+    document.getElementById('PY').addEventListener('click', function() { fitRegion('PY') });
+    document.getElementById('AR').addEventListener('click', function() { fitRegion('AR') });
+    document.getElementById('US').addEventListener('click', function() { fitRegion('US') });
+    document.getElementById('BR').addEventListener('click', function() { fitRegion('BR') });
+    document.getElementById('EU').addEventListener('click', function() { fitRegion('EU') });
+    document.getElementById('WW').addEventListener('click', function() { fitRegion('WW') });
+
+    // mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2RmOWF1c3YxcGNoMnhqcXFqZjloNzY1In0.S8A0ddx5HvppFi0zudL_xQ';
+
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11'
@@ -131,76 +142,21 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
 
     }
 
-    function showWorldwide() {
-        map.fitBounds([
-          [-160, -20],
-          [180, 60]],
-          {padding: 50}
-        );
-    };
+    function fitRegion(region) {
 
-    function showEuropeanUnion() {
-        map.fitBounds([
-          [-24.689924, 35.716942],
-          [50.678160, 71.093955]],
-          {padding: 50}
-        );
-    };
+      var bboxes = countries_bbox[region][1]
 
-    function showBrazil() {
-        map.fitBounds([
-          [-73.9872354804, -33.7683777809],
-          [-34.7299934555, 5.24448639569]],
-          {padding: 50}
-        );
-    };
+      var west = bboxes[0];
+      var south = bboxes[1];
+      var east = bboxes[2];
+      var north = bboxes[3];
 
-    function showUnitedStates() {
-        map.fitBounds([
-          [-125.041939, 24.745653],
-          [-66.827536, 49.038054]],
+      map.fitBounds([
+          [west, south],
+          [east, north]],
           {padding: 50}
-        );
-    };
+      );
 
-    function showArgentina() {
-        map.fitBounds([
-          [-73.4154357571, -55.25],
-          [-53.628348965, -21.8323104794]],
-          {padding: 50}
-        );
-    };
-
-    function showParaguay() {
-        map.fitBounds([
-          [-62.6850571357, -27.5484990374],
-          [-54.2929595608, -19.3427466773]],
-          {padding: 50}
-        );
-    };
-
-    function showVatican() {
-        map.fitBounds([
-          [12.445713, 41.900179],
-          [12.458437, 41.9074918]],
-          {padding: 50}
-        );
-    };
-
-    function showItaly() {
-        map.fitBounds([
-          [6.7499552751, 36.619987291],
-          [18.4802470232, 47.1153931748]],
-          {padding: 50}
-        );
-    };
-
-    function showCroatia() {
-        map.fitBounds([
-          [13.6569755388, 42.47999136],
-          [19.3904757016, 46.5037509222]],
-          {padding: 50}
-        );
     };
 
 </script>
@@ -224,4 +180,3 @@ src="https://www.statcounter.com/counter/counter.js" async></script>
 
 </body>
 </html>
-
