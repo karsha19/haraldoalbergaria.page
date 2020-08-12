@@ -44,11 +44,41 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
 
 <script>
 
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11'
+    });
+
+    map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
+
+    function openExhibits() {
+        window.location.replace("https://hpfilho.github.io/map/exhibits/")
+    }
+    map.addControl(new mapboxgl.NavigationControl());
+
+    function openExhibits() {
+        window.location.replace("https://hpfilho.github.io/map/exhibits/")
+    }
+
+    var layerList = document.getElementById('menu');
+    var inputs = layerList.getElementsByTagName('input');
+
+    function switchLayer(layer) {
+        var layerId = layer.target.id;
+        map.setStyle('mapbox://styles/mapbox/' + layerId);
+    }
+
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = switchLayer;
+    }
+
     for (var i = countries.length-1; i >= 0; i--) {
         var country_code = countries[i][0];
         createIcon(country_code);
     }
-    
+
     createIcon('EU');
     createIcon('WW');
 
@@ -80,36 +110,6 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
     document.getElementById('EU').addEventListener('click', function() { fitRegion('EU') });
     document.getElementById('WW').addEventListener('click', function() { fitRegion('WW') });
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyYWxkby1maWxobyIsImEiOiJja2NpNmNtNWUwZnZnMnlycDBwM3FjeXp2In0.B1eDc6wvyIq1r_LTC6hX0g';
-
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11'
-    });
-
-    map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
-
-    function openExhibits() {
-        window.location.replace("https://hpfilho.github.io/map/exhibits/")
-    }
-    map.addControl(new mapboxgl.NavigationControl());
-
-    function openExhibits() {
-        window.location.replace("https://hpfilho.github.io/map/exhibits/")
-    }
-
-    var layerList = document.getElementById('menu');
-    var inputs = layerList.getElementsByTagName('input');
-
-    function switchLayer(layer) {
-        var layerId = layer.target.id;
-        map.setStyle('mapbox://styles/mapbox/' + layerId);
-    }
-
-    for (var i = 0; i < inputs.length; i++) {
-        inputs[i].onclick = switchLayer;
-    }
-
     var west = 180;
     var south = 90;
     var east = -180;
@@ -125,19 +125,10 @@ font-family: 'Open Sans', sans-serif; cursor: default; }
 
     function addMarker(value) {
 
-        if (value[2] <= 35) {
-
-            new mapboxgl.Marker({color:'#C2185B',scale:0.7,draggable:false})
-                .setLngLat(value[0])
-                .setPopup(new mapboxgl.Popup({closeButton:false,maxWidth:'566px'}).setHTML(value[1]))
-                .addTo(map);
-        } else {
-
-            new mapboxgl.Marker({color:'#C2185B',scale:0.7,draggable:false})
-                .setLngLat(value[0])
-                .setPopup(new mapboxgl.Popup({closeButton:false,maxWidth:'592px'}).setHTML(value[1]))
-                .addTo(map);
-        }
+        new mapboxgl.Marker({color:'#C2185B',scale:0.7,draggable:false})
+            .setLngLat(value[0])
+            .setPopup(new mapboxgl.Popup({closeButton:false,maxWidth:'566px'}).setHTML(value[1]))
+            .addTo(map);
 
         if (value[0][0] < west) {
             west = value[0][0];

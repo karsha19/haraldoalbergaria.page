@@ -6,6 +6,10 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../icons/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../style.css" />
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="js/galleries.js"></script>
+  <script src="js/exhibits.js"></script>
+  <script src="js/countries.js"></script>
+  <script src="../js/countries_bbox.js"></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
   <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
   <style>
@@ -28,13 +32,7 @@
     <label for="satellite-v9">satellite</label>
   </div>
 
-  <div class="exhibits-countries-panel">
-    <div class="flag-icon"><img class="icon" src="../icons/united-kingdom.svg" title="United Kingdom" alt="United Kingdom" onclick="showUnitedKingdom()"/></div>
-    <div class="flag-icon"><img class="icon" src="../icons/hungary.svg" title="Hungary" alt="Hungary" onclick="showHungary()"/></div>
-    <div class="flag-icon"><img class="icon" src="../icons/greece.svg" title="Greece" alt="Greece" onclick="showGreece()"/></div>
-    <div class="flag-icon"><img class="icon" src="../icons/european-union.svg" title="European Union" alt="European Union" onclick="showEuropeanUnion()"/></div>
-    <div class="flag-icon"><img class="icon" src="../icons/worldwide.svg" title="Worldwide" alt="Worldwide" onclick="showWorldwide()"/></div>
-  </div>
+  <div id="panel" class="exhibits-countries-panel"></div>
 
   <div class="map-switcher">
     <div class="unselected-photos" onclick="openPhotos()">PHOTOS</div>
@@ -54,7 +52,7 @@
       style: 'mapbox://styles/mapbox/streets-v11'
   });
 
-  map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')})); 
+  map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
   map.addControl(new mapboxgl.NavigationControl());
 
   function openPhotos() {
@@ -73,14 +71,48 @@
     inputs[i].onclick = switchLayer;
   }
 
-  var locations = getLocations();
+  for (var i = countries.length-1; i >= 0; i--) {
+      var country_code = countries[i][0];
+      createIcon(country_code);
+  }
+
+  createIcon('EU');
+  createIcon('WW');
+
+  function createIcon(country_code) {
+      var country_name = countries_bbox[country_code][0];
+      var elem = document.createElement("IMG");
+      elem.setAttribute("id", country_code);
+      elem.setAttribute("class", "icon");
+      elem.setAttribute("src", getIconSrc(country_name));
+      elem.setAttribute("title", country_name);
+      elem.setAttribute("alt", country_name);
+      var div = document.createElement("DIV");
+      div.setAttribute("class", "flag-icon");
+      div.appendChild(elem);
+      document.getElementById("panel").appendChild(div);
+  }
+
+  function getIconSrc(name) {
+    return "../icons/".concat(name.replace(" ", "-").toLowerCase()).concat(".svg");
+  }
+
+  countries.forEach(addListener);
+
+  function addListener(country) {
+    var country_code = country[0];
+    document.getElementById(country_code).addEventListener('click', function() { fitRegion(country_code) });
+  }
+
+  document.getElementById('EU').addEventListener('click', function() { fitRegion('EU') });
+  document.getElementById('WW').addEventListener('click', function() { fitRegion('WW') });
 
   var west = 180;
   var south = 90;
   var east = -180;
   var north = -90;
 
-  locations.forEach(addMarker);
+  galleries.forEach(addMarker);
 
   map.fitBounds([
     [west, south],
@@ -89,10 +121,13 @@
   );
 
   function addMarker(value) {
+
+    var html = getGalleryHtml(value[1], value[2]);
+
     new mapboxgl.Marker({color:'#034081',scale:0.7,draggable:false})
-    .setLngLat(value[0])
-    .setPopup(new mapboxgl.Popup({closeButton:false,maxWidth:'566px'}).setHTML(value[1]))
-    .addTo(map);
+     .setLngLat(value[0])
+     .setPopup(new mapboxgl.Popup({closeButton:false,maxWidth:'566px'}).setHTML(html))
+     .addTo(map);
 
     if (value[0][0] < west) {
       west = value[0][0];
@@ -109,60 +144,41 @@
     if (value[0][1] > north) {
       north = value[0][1];
     }
- 
-  }
-
-  function showWorldwide() {
-    map.fitBounds([
-      [-160, -20],
-      [180, 60]],
-      {padding:50}
-    );
-  };
-
-  function showEuropeanUnion() {
-    map.fitBounds([
-      [-24.689924, 35.716942],
-      [50.678160, 71.093955]],
-      {padding:50}
-    );
-  };
-
-  function showGreece() {
-    map.fitBounds([
-      [20.1500159034, 34.9199876979],
-      [26.6041955909, 41.8269046087]],
-      {padding:50}
-    );
-  };
-
-  function showHungary() {
-    map.fitBounds([
-      [16.2022982113, 45.7594811061],
-      [22.710531447, 48.6238540716]],
-      {padding:50}
-    );
-  };
-
-  function showUnitedKingdom() {
-    map.fitBounds([
-      [-7.57216793459, 49.959999905],
-      [1.68153079591, 58.6350001085]],
-      {padding:50}
-    );
-  };
-
-  function getLocations() {
-
-    var locations = [];
-    locations.push([[23.740163, 38.002117], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com\" target=\"_blank\">Blank Wall Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"\" target=\"_blank\"> </a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.blankwallgallery.com/exhibition-monochrome-2020/#jp-carousel-11870\" target=\"_blank\">2020 Monochrome</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-moments-color/#jp-carousel-10187\" target=\"_blank\">2019 Moments of Color</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-street-photography-2019/#jp-carousel-9748\" target=\"_blank\">2019 Street Photography</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.blankwallgallery.com/exhibition-black-white-2019/#jp-carousel-8846\" target=\"_blank\">2019 Black & White</a></div></div>"]);
-    locations.push([[19.066552, 47.482346], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"https://www.ph21gallery.com\" target=\"_blank\">PH21 Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"\" target=\"_blank\"> </a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://www.ph21gallery.com/shape-of-things-19?lightbox=dataItem-juu2ee2x\" target=\"_blank\">2019 The Shape of Things</a></div></div>"]);
-    locations.push([[24.019707, 35.518508], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"http://www.cipfestival.com\" target=\"_blank\">Cip Festival</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"\" target=\"_blank\"> </a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"http://www.cipfestival.com/participating-artists-2019/#jp-carousel-5786\" target=\"_blank\">2019 Monochrome</a></div></div>"]);
-    locations.push([[-4.257888, 55.865262], "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\"https://www.glasgowgalleryofphotography.com\" target=\"_blank\">Glasgow Photo Gallery</a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"\" target=\"_blank\"> </a></div><div class=\"exhibition-name\"><a class=\"exhib\" href=\"https://pt.glasgowgalleryofphotography.com/exhibitors?lightbox=dataItem-kdhruyie2\" target=\"_blank\">2020 Seascapes</a></div></div>"]);
-
-    return locations;
 
   }
+
+  function getGalleryHtml(name, url) {
+
+    var galleryHtml = "<div class=\"exhibition\"><div class=\"gallery-name\"><a class=\"exhib\" href=\""
+      .concat(url).concat("\" target=\"_blank\">").concat(name).concat("</a></div>");
+
+    for (var i = exhibits.length-1; i >= 0; i--) {
+      if (exhibits[i][0] == name) {
+        galleryHtml = galleryHtml.concat("<div class=\"exhibition-name\"><a class=\"exhib\" href=\"").concat(exhibits[i][3])
+          .concat("\" target=\"_blank\">").concat(exhibits[i][1]).concat(" ").concat(exhibits[i][2]).concat("</a></div>");
+      }
+    }
+
+    return galleryHtml.concat("</div>");
+
+  }
+
+  function fitRegion(region) {
+
+    var bboxes = countries_bbox[region][1]
+
+    var west = bboxes[0];
+    var south = bboxes[1];
+    var east = bboxes[2];
+    var north = bboxes[3];
+
+    map.fitBounds([
+        [west, south],
+        [east, north]],
+        {padding: 50}
+    );
+
+  };
 
 </script>
 
