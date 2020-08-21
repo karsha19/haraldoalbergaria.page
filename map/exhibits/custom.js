@@ -2,25 +2,16 @@ function custom() {
 
   document.title = user_info["name"].concat(" | Photos Map");
 
-  countries = []
-
-  for (var country_code in countries_dict) {
-    countries.push([country_code,
-      countries_dict[country_code][0],
-      countries_dict[country_code][1],
-      countries_dict[country_code][2]])
-  }
-
   addFavicon();
   addFooter();
 
   var div_sw_photos = document.createElement("DIV");
-  div_sw_photos.setAttribute("class", "selected-photos");
+  div_sw_photos.setAttribute("class", "unselected-photos");
+  div_sw_photos.addEventListener('click', function () { openPhotos() })
   div_sw_photos.innerText = "PHOTOS";
 
   var div_sw_exhibits = document.createElement("DIV");
-  div_sw_exhibits.setAttribute("class", "unselected-exhibits");
-  div_sw_exhibits.addEventListener('click', function () { openExhibits() })
+  div_sw_exhibits.setAttribute("class", "selected-exhibits");
   div_sw_exhibits.innerText = "EXHIBITS";
 
   var div_map_switcher = document.createElement("DIV");
@@ -55,7 +46,7 @@ function custom() {
     var favicon = document.createElement("LINK");
     favicon.setAttribute("rel", "shortcut icon");
     favicon.setAttribute("type", "image/x-icon");
-    favicon.setAttribute("href", "../icons/favicon.ico");
+    favicon.setAttribute("href", "../../icons/favicon.ico");
     document.head.append(favicon);
   }
 
@@ -74,7 +65,7 @@ function custom() {
   }
 
   function getIconSrc(name) {
-    return "icons/".concat(name.replace(" ", "-").toLowerCase()).concat(".svg");
+    return "../icons/".concat(name.replace(" ", "-").toLowerCase()).concat(".svg");
   }
 
   function addListener(country) {
@@ -99,8 +90,8 @@ function custom() {
 
   };
 
-  function openExhibits() {
-    window.location.replace("https://hpfilho.github.io/map/exhibits/")
+  function openPhotos() {
+      window.location.replace("https://hpfilho.github.io/map/");
   }
 
   function addFooter() {
