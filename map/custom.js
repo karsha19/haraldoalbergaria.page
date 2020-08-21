@@ -20,7 +20,7 @@ function custom() {
 
   var div_sw_exhibits = document.createElement("DIV");
   div_sw_exhibits.setAttribute("class", "unselected-exhibits");
-  div_sw_exhibits.setAttribute("onclick", "openExhibits()")
+  div_sw_exhibits.addEventListener('click', function () { openExhibits() })
   div_sw_exhibits.innerText = "EXHIBITS";
 
   var div_map_switcher = document.createElement("DIV");
