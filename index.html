@@ -105,25 +105,29 @@
               <p class="item">Florianópolis, SC</i>
               <p class="item">Pocinhos do Rio Verde, MG</p>
               <p class="item">Natal, RN</p>
+              <p class="item">Ilhabela, SP</p>
               <p class="item">Monte Alegre do Sul, SP</p>
+              <p class="item">Holambra, SP</p>
               <p class="item">Canela, RS</p>
               <p class="item">Gramado, RS</p>
-              <p class="item">São Francisco de Paula, RS</p>
               <p class="item">Foz do Iguaçu, PR</p>
               <p class="item">Analândia, SP</p>
               <p class="item">Monte Verde, MG</p>
-            <p class="items-title"><img class="tiny_icon" src="map/icons/paraguay.svg"/>Paraguay</p>
-              <p class="item">Ciudad del Este</p>
-          </div>
-          <div class="cities-column-2">
             <p class="items-title"><img class="tiny_icon" src="map/icons/argentina.svg"/>Argentina</p>
               <p class="item">Puerto Iguazu</p>
+          </div>
+          <div class="cities-column-2">
+            <p class="items-title"><img class="tiny_icon" src="map/icons/paraguay.svg"/>Paraguay</p>
+              <p class="item">Ciudad del Este</p>
             <p class="items-title"><img class="tiny_icon" src="map/icons/united-states.svg"/>United States</p>
               <p class="item">Chicago, IL</p>
               <p class="item">Austin, TX</p>
               <p class="item">San Antonio, TX</i>
+              <p class="item">San Bruno, CA</p>
               <p class="item">San Francisco, CA</p>
               <p class="item">Monterey (Big Sur), CA</p>
+              <p class="item">Oakhurst, CA</a>
+              <p class="item">Palo Alto, CA</a>
               <p class="item">Mountain View, CA</a>
             <p class="items-title"><img class="tiny_icon" src="map/icons/vatican.svg"/>Vatican</p>
               <p class="item">Città del Vaticano</p>
@@ -207,7 +211,7 @@
      minLoaded = slides.length;
    }
 
-   slideIndex = getIndex(minLoaded);
+   slideIndex = getIndex(minLoaded-1);
 
    // Avoid show image before it being loaded
    function loadedImage() {
