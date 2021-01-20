@@ -8,7 +8,7 @@ The purpose of the site is to showcase my activities as a hobbyist photographer.
 
 ## The Map
 
-One of those buttons opens a [map](https://haraldoalbergaria.photos/map/) on where it is possible to see the locations where each photo uploaded to [my _Flickr_ account](https://www.flickr.com/photos/hpfilho/) have been taken.
+One of the buttons opens a [map](https://haraldoalbergaria.photos/map/) on where it is possible to see the locations where each photo uploaded to [my _Flickr_ account](https://www.flickr.com/photos/hpfilho/) have been taken.
 
 [![Photos Map](https://github.com/hpfilho/hpfilho.github.io/blob/master/img/map.png)](https://haraldoalbergaria.photos/map/)
 
