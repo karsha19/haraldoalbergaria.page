@@ -2,9 +2,9 @@
 
 This is the code repository for my [photography website](https://haraldoalbergaria.photos/).
 
-[![Haraldo Albergaria Photography](https://github.com/hpfilho/hpfilho.github.io/blob/master/img/site.png)](https://haraldoalbergaria.photos/)
-
 The purpose of the site is to showcase my activities as a hobbyist photographer. It was written in _**Javascript**_, _**HTML**_ and _**CSS**_, and it has buttons to my other photography sites, social media accounts and a photos map.
+
+[![Haraldo Albergaria Photography](https://github.com/hpfilho/hpfilho.github.io/blob/master/img/site.png)](https://haraldoalbergaria.photos/)
 
 ## The Map
 
