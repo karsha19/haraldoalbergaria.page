@@ -1,10 +1,10 @@
 countries_dict = {
-  'HR': ['Croatia', 184, 243],
-  'VA': ['Vatican City', 22, 31],
-  'BR': ['Brazil', 176, 394],
+  'AR': ['Argentina', 39, 65],
+  'BR': ['Brazil', 175, 393],
   'US': ['United States of America', 50, 132],
-  'CL': ['Chile', 62, 112],
+  'HR': ['Croatia', 184, 243],
   'PY': ['Paraguay', 1, 1],
-  'AR': ['Argentina', 38, 64],
-  'IT': ['Italy', 77, 126]
+  'CL': ['Chile', 62, 112],
+  'IT': ['Italy', 77, 126],
+  'VA': ['Vatican City', 22, 31]
 }
