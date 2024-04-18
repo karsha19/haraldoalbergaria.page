@@ -1,0 +1,7 @@
+*.sh
+*.log
+map/build/*
+!map/build/config.py
+!map/build/generate-map-data.py
+!map/build/update-map.sh
+
