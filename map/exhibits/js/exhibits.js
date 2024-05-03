@@ -5,5 +5,5 @@ var exhibits = [
   ['Blank Wall Gallery', 2019, 'Moments of Color', 'http://www.blankwallgallery.com/exhibition-moments-color/#jp-carousel-10187'],
   ['Cip Festival', 2019, 'Monochrome', 'http://www.cipfestival.com/participating-artists-2019/#jp-carousel-5786'],
   ['Blank Wall Gallery', 2020, 'Monochrome', 'https://www.blankwallgallery.com/exhibition-monochrome-2020/#jp-carousel-11870'],
-  ['Glasgow Photo Gallery', 2020, 'Seascapes', 'https://pt.glasgowgalleryofphotography.com/exhibitors?lightbox=dataItem-kdhruyie2']
+  ['Glasgow Photo Gallery', 2020, 'Seascapes', 'https://www.glasgowgalleryofphotography.com/']
 ]
