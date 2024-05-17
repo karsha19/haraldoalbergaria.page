@@ -96,7 +96,7 @@
 
       new mapboxgl.Marker({color:'#034081',scale:0.7,draggable:false})
        .setLngLat(value[0])
-       .setPopup(new mapboxgl.Popup({closeButton:false,maxWidth:'566px'}).setHTML(html))
+       .setPopup(new mapboxgl.Popup({closeButton:false,maxWidth:'566px',anchor:'bottom'}).setHTML(html))
        .addTo(map);
 
       if (value[0][0] < west) {
