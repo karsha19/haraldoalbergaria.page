@@ -41,21 +41,20 @@ function custom() {
     return delta;
    });
 
+  addIcon('WW', div_panel);
+  // addIcon('EU', div_panel);
+
   for (var i = countries.length-1; i >= 0; i--) {
     var country_code = countries[i][0];
       addIcon(country_code, div_panel);
   }
 
-  //addIcon('EU', div_panel);
-  //addIcon('WW', div_panel);
-
   document.body.appendChild(div_panel);
 
+  document.getElementById('WW').addEventListener('click', function() { fitRegion('WW') });
+  // document.getElementById('EU').addEventListener('click', function() { fitRegion('EU') });
+
   countries.forEach(addListener);
-
-  //document.getElementById('EU').addEventListener('click', function() { fitRegion('EU') });
-  //document.getElementById('WW').addEventListener('click', function() { fitRegion('WW') });
-
 
   // Functions
 
