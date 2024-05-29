@@ -44,6 +44,10 @@ function custom() {
   addIcon('WW', div_panel);
   // addIcon('EU', div_panel);
 
+  var separator = document.createElement('HR');
+  separator.setAttribute('class', 'separator');
+  div_panel.appendChild(separator);
+
   for (var i = countries.length-1; i >= 0; i--) {
     var country_code = countries[i][0];
       addIcon(country_code, div_panel);

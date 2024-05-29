@@ -158,6 +158,13 @@ a.exhib:hover {
   cursor: pointer;
 }
 
+hr.separator {
+  border-top: 1px solid #ccc;
+  margin-top: 1px;
+  margin-bottom: 2px;
+  width: 75%;
+}
+
 img.icon {
   width: 30px;
   height: 30px;
