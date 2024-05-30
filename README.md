@@ -1,16 +1,16 @@
-# My Photography Website
+# My "Photos & Trips" Website
 
-This is the code repository for my [photography website](https://haraldoalbergaria.page/).
+This is the code repository for my [website](https://haraldoalbergaria.page/).
 
 The purpose of the site is to showcase my activities as a hobbyist photographer. It was written in _**Javascript**_, _**HTML**_ and _**CSS**_, and it has buttons to my other photography sites, social media accounts and a photos map.
 
-[![Haraldo Albergaria Photography](https://github.com/hpfilho/hpfilho.github.io/blob/master/img/site.png)](https://haraldoalbergaria.page/)
+[![Haraldo Albergaria Photography](https://github.com/HaraldoFilho/haraldoalbergaria.page/blob/master/img/site.png)](https://haraldoalbergaria.page/)
 
 ## The Map
 
 One of the buttons opens a [map](https://haraldoalbergaria.page/map/) on where it is possible to see the locations where each photo uploaded to [my _Flickr_ account](https://www.flickr.com/photos/hpfilho/) have been taken.
 
-[![Photos Map](https://github.com/hpfilho/hpfilho.github.io/blob/master/img/map.png)](https://haraldoalbergaria.page/map/)
+[![Photos Map](https://github.com/HaraldoFilho/haraldoalbergaria.page/blob/master/img/map.png)](https://haraldoalbergaria.page/map/)
 
 ### Map Data
 
