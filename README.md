@@ -14,7 +14,7 @@ One of the buttons opens a [map](https://haraldoalbergaria.page/map/) on where i
 
 ### Map Data
 
-The map data is generated using the script [FlickrMap](https://github.com/hpfilho/flickr-map), writen in _**Python**_. This script uses the [_Flickr API_](https://www.flickr.com/services/api/)
+The map data is generated using the script [FlickrMap](https://github.com/HaraldoFilho/flickr-map), writen in _**Python**_. This script uses the [_Flickr API_](https://www.flickr.com/services/api/)
 to get the photos data. It generates the following files:
 
 - **locations.py**: Contains all the markers information, as coordinates and photos attached to them.
