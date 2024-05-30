@@ -102,7 +102,7 @@ function custom() {
   };
 
   function openPhotos() {
-      window.location.replace("https://hpfilho.github.io/map/");
+      window.location.replace("https://haraldoalbergaria.page/map/");
   }
 
   function addFooter() {
