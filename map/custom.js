@@ -111,7 +111,7 @@ function custom() {
   };
 
   function openExhibits() {
-    window.location.replace("https://hpfilho.github.io/map/exhibits/")
+    window.location.replace("https://haraldoalbergaria.page/map/exhibits/")
   }
 
   function addFooter() {
