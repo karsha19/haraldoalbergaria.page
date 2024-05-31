@@ -25,19 +25,19 @@
 
     <div id="main" class="main">
 
-      <img id="banner" src="res/en-us/images/banner.png" alt="banner" />
+      <img id="banner" alt="banner" />
       <br>
       <div id="description"></div>
 
     </div>
 
     <div id="panel" class="panel">
-      <img id="phone" src="res/en-us/images/phone.png" alt="Phone" />
+      <img id="phone" alt="Phone" />
       <br>
 
       <!-- google play app link -->
       <a href="https://play.google.com/store/apps/details?id=com.apps.mohb.shutternotes" target="_blank">
-        <img id="google-play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get It on Google Play" style="width:85%;" /></a>
+        <img id="google-play" style="width:190px"/></a>
 
     </div>
 
@@ -46,9 +46,6 @@
   </div>
 
   <script>
-
-    document.getElementById('description').innerHTML = description_en_us;
-    document.getElementById('footer').innerHTML = footer_en_us;
 
     var userLang = navigator.language || navigator.userLanguage;
     console.log ("User language is: " + userLang);
@@ -59,6 +56,14 @@
       document.getElementById('banner').setAttribute('src', 'res/pt-br/images/banner.png');
       document.getElementById('phone').setAttribute('src', 'res/pt-br/images/phone.png');
       document.getElementById('google-play').setAttribute('src', 'https://play.google.com/intl/en_us/badges/static/images/badges/pt-br_badge_web_generic.png');
+      document.getElementById('google-play').setAttribute('alt', 'Disponível no Google Play');
+    } else {
+      document.getElementById('description').innerHTML = description_en_us;
+      document.getElementById('footer').innerHTML = footer_en_us;
+      document.getElementById('banner').setAttribute('src', 'res/en-us/images/banner.png');
+      document.getElementById('phone').setAttribute('src', 'res/en-us/images/phone.png');
+      document.getElementById('google-play').setAttribute('src', 'https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png');
+      document.getElementById('google-play').setAttribute('alt', 'Get It on Google Play');
     }
 
   </script>
