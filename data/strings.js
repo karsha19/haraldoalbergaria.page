@@ -9,7 +9,14 @@ var strings_dict = {
   'PRIME': 'Lentes Prime',
   'EXHIBITS': 'Exposições',
   'CITIES': 'Países e Cidades Visitadas',
-  'PARKS': 'Parques Nacionais Visitados'
+  'PARKS': 'Parques Nacionais Visitados',
+  'MAP_TITLE': 'Mapa de Fotos',
+  'MAP_EXHIBITS_TITLE': 'Exposições',
+  'MAP_LAYER_1': 'mapa',
+  'MAP_LAYER_2': 'relevo',
+  'MAP_LAYER_3': 'satélite',
+  'MAP_PHOTOS': 'FOTOS',
+  'MAP_EXHIBITS': 'EXPOSIÇÕES'
 }
 
 var strings_dict_en = {
@@ -23,5 +30,12 @@ var strings_dict_en = {
   'PRIME': 'Prime Lenses',
   'EXHIBITS': 'Exhibitions',
   'CITIES': 'Visited Countries and Cities',
-  'PARKS': 'Visited National Parks'
+  'PARKS': 'Visited National Parks',
+  'MAP_TITLE': 'Photos Map',
+  'MAP_EXHIBITS_TITLE': 'Exhibits Map',
+  'MAP_LAYER_1': 'map',
+  'MAP_LAYER_2': 'elevation',
+  'MAP_LAYER_3': 'satellite',
+  'MAP_PHOTOS': 'PHOTOS',
+  'MAP_EXHIBITS': 'EXHIBITS'
 }

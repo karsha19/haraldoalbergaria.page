@@ -1,6 +1,13 @@
 function custom() {
 
-  document.title = user_info["name"].concat(" | Photos Map");
+  var userLang = navigator.language || navigator.userLanguage;
+  console.log ("User language is: " + userLang);
+
+  if (userLang != 'pt-BR') {
+    strings_dict = strings_dict_en;
+  }
+
+  document.title = user_info["name"].concat(" | ").concat(strings_dict['MAP_TITLE']);
 
   countries = []
 
@@ -14,14 +21,48 @@ function custom() {
   addFavicon();
   addFooter();
 
+  // construct menu on full window map
+  var input_streets = document.createElement('INPUT');
+  input_streets.setAttribute('id', 'streets-v11');
+  input_streets.setAttribute('type', 'radio');
+  input_streets.setAttribute('name', 'rtoggle');
+  input_streets.setAttribute('value', 'streets');
+  input_streets.setAttribute('checked', 'checked');
+  var label_streets = document.createElement('LABEL');
+  label_streets.setAttribute('for', 'streets-v11');
+  label_streets.innerText = strings_dict['MAP_LAYER_1'];
+  var input_outdoors = document.createElement('INPUT');
+  input_outdoors.setAttribute('id', 'outdoors-v11');
+  input_outdoors.setAttribute('type', 'radio');
+  input_outdoors.setAttribute('name', 'rtoggle');
+  input_outdoors.setAttribute('value', 'outdoors');
+  var label_outdoors = document.createElement('LABEL');
+  label_outdoors.setAttribute('for', 'outdoors-v11');
+  label_outdoors.innerText = strings_dict['MAP_LAYER_2'];
+  var input_satellite = document.createElement('INPUT');
+  input_satellite.setAttribute('id', 'satellite-v9');
+  input_satellite.setAttribute('type', 'radio');
+  input_satellite.setAttribute('name', 'rtoggle');
+  input_satellite.setAttribute('value', 'satellite');
+  var label_satellite = document.createElement('LABEL');
+  label_satellite.setAttribute('for', 'satellite-v9');
+  label_satellite.innerText = strings_dict['MAP_LAYER_3'];
+  var menu = document.getElementById('menu');
+  menu.appendChild(input_streets);
+  menu.appendChild(label_streets);
+  menu.appendChild(input_outdoors);
+  menu.appendChild(label_outdoors);
+  menu.appendChild(input_satellite);
+  menu.appendChild(label_satellite);
+
   var div_sw_photos = document.createElement("DIV");
   div_sw_photos.setAttribute("class", "selected-photos");
-  div_sw_photos.innerText = "PHOTOS";
+  div_sw_photos.innerText = strings_dict['MAP_PHOTOS'];
 
   var div_sw_exhibits = document.createElement("DIV");
   div_sw_exhibits.setAttribute("class", "unselected-exhibits");
   div_sw_exhibits.addEventListener('click', function () { openExhibits() })
-  div_sw_exhibits.innerText = "EXHIBITS";
+  div_sw_exhibits.innerText = strings_dict['MAP_EXHIBITS'];
 
   var div_map_switcher = document.createElement("DIV");
   div_map_switcher.setAttribute("class", "map-switcher");
