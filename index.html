@@ -10,10 +10,12 @@
   <script src="data/photos.js"></script>
   <script src="data/strings.js"></script>
   <script src="data/about.js"></script>
+  <script src="data/gear.js"></script>
   <script src="data/exhibits.js"></script>
   <script src="data/countries.js"></script>
   <script src="data/cities.js"></script>
   <script src="data/parks.js"></script>
+  <script src="data/attrib.js"></script>
 </head>
 
 <body>
@@ -42,10 +44,6 @@
     </div>
 
     <div id="attributions">
-      <div>All icons made by <a href="https://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha" target="_blank">Pixel Buddha</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a>
-        excepting: Photographer icon by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>,
-        <a href="https://www.gettyimages.com" target="_blank">Getty Images</a> icon by <a href="https://www.gettyimages.com" target="_blank">Getty Images</a> and
-        <a href="https://www.blurb.com" target="_blank">Blurb</a> icon by <a href="https://www.iconfinder.com" target="_blank">Iconfinder</a></div>
     </div>
 
   </div>
@@ -66,18 +64,9 @@
 
         <div class="gear">
           <div id="gear-title" class="gear-title"></div>
-            <p id="body" class="items-title"></p>
-              <p class="item">Canon EOS Rebel T5i</p>
-            <p id="zoom" class="items-title"></p>
-              <p class="item">Canon EF-S 10-18mm f/4.5-5.6 IS STM</p>
-              <p class="item">Canon EF-S 18-55mm f/3.5-5.6 IS STM</p>
-              <p class="item">Canon EF-S 55-250mm f/4-5.6 IS STM</p>
-            <p id="prime" class="items-title"></p>
-              <p class="item">Canon EF-S 24mm f/2.8 STM</p>
-              <p class="item">Canon EF 50mm f/1.8 STM</p>
-            <!-- <p class="items-title">Teleconverters</p>
-              <p class="item">Kenko TELEPLUS HD DGX 1.4x</p>
-              <p class="item">Kenko TELEPLUS HD DGX 2x</p> -->
+          <div id="body-list"><p id="body" class="items-title"></p></div>
+          <div id="zoom-list"><p id="zoom" class="items-title"></p></div>
+          <div id="prime-list"><p id="prime" class="items-title"></p></div>
         </div>
 
         <div id="exhibits" class="exhibits">
@@ -168,8 +157,9 @@
      countries = countries_en;
      cities = cities_en;
      parks = parks_en;
+     attrib = attrib_en;
    } else {
-     document.getElementById('load').setAttribute('style', 'width:300px;margin-left:-160px;')
+     document.getElementById('load').setAttribute('style', 'width:300px;margin-left:-150px;')
    }
 
    document.getElementById('title').innerText = strings_dict['TITLE'];
@@ -177,13 +167,34 @@
    document.getElementById('subtitle').innerText = strings_dict['SUBTITLE'];
    document.getElementById('about-title').innerText = strings_dict['ABOUT'];
    document.getElementById('about').innerHTML = about;
+
+
    document.getElementById('gear-title').innerText = strings_dict['GEAR'];
    document.getElementById('body').innerText = strings_dict['BODY'];
    document.getElementById('zoom').innerText = strings_dict['ZOOM'];
    document.getElementById('prime').innerText = strings_dict['PRIME'];
 
-   document.getElementById('exhibits-title').innerText = strings_dict['EXHIBITS'];
+   for (var i = 0; i < cam_body.length; i++) {
+     var list_item = document.createElement('P');
+     list_item.setAttribute('class', 'item');
+     list_item.innerText = cam_body[i];
+     document.getElementById('body-list').append(list_item);
+   }
+   for (var i = 0; i < zoom_lens.length; i++) {
+     var list_item = document.createElement('P');
+     list_item.setAttribute('class', 'item');
+     list_item.innerText = zoom_lens[i];
+     document.getElementById('zoom-list').append(list_item);
+   }
+   for (var i = 0; i < prime_lens.length; i++) {
+     var list_item = document.createElement('P');
+     list_item.setAttribute('class', 'item');
+     list_item.innerText = prime_lens[i];
+     document.getElementById('prime-list').append(list_item);
+   }
 
+
+   document.getElementById('exhibits-title').innerText = strings_dict['EXHIBITS'];
    var exhibits_list = document.getElementById('exhibits');
 
    for (var i = 0; i < exhibits.length; i++) {
@@ -249,6 +260,8 @@
      var list_id = "parks-" + parks[i][1].toLowerCase();
      document.getElementById(list_id).append(list_item);
    }
+
+   document.getElementById('attributions').innerHTML = attrib;
 
 
    // Avoid show image before it being loaded
