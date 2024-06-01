@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Haraldo Albergaria | Photos & Trips</title>
+  <title id="title"></title>
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="norton-safeweb-site-verification" content="754XA-1GNM5TKG2FTBXNS41GN2JI1--H7FKQL28SAPU0BO31QK4IN6IOXO6Y7IVXL2TKALFAPUVEUI318XO2J8MIZZMX6DCUSFL3LRVMIJYXVKJOB6W1V0H5L96-771L" />
   <link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <script src="photos.js"></script>
+  <script src="data/photos.js"></script>
+  <script src="data/strings.js"></script>
+  <script src="data/about.js"></script>
+  <script src="data/exhibits.js"></script>
+  <script src="data/countries.js"></script>
+  <script src="data/cities.js"></script>
+  <script src="data/parks.js"></script>
 </head>
 
 <body>
 
   <div id="loader">
     <div id="wheel"></div>
-    <div class="text">
-      Loading page... Please wait
-    </div>
+    <div id="load" class="text"></div>
   </div>
 
   <div style="display:none;" id="main-container">
 
     <div id="title">
       Haraldo Albergaria<br>
-      <p class="subtitle">Photos & Trips</p>
+      <p id="subtitle" class="subtitle"></p>
     </div>
 
     <div id="icons-panel">
@@ -54,30 +59,20 @@
       <div class="grid-container">
 
         <div class="about">
-          <div class="about-title">About Me</div>
-          <p class="about">
-          I'm a hobbyist photographer from Campinas, Brazil. I like to photograph any subject
-          but I shoot mostly nature and travel photography.
-          <br><br>
-          My background is in Computer Science and Electronics and I work as an R&D Specialist
-          in Microelectronics, using my vacations to travel and photograph.
-          <br><br>
-          So far, I visited 42 cities and 11 National Parks in 9 countries.
-          <!-- <br><br>
-          On my spare time, I like to write scripts and build apps related to photography.
-          They are available on my <a href="https://github.com/hpfilho"><b>GitHub</b></a> profile. -->
+          <div id="about-title" class="about-title">About Me</div>
+          <p id="about" class="about">
         </p>
         </div>
 
         <div class="gear">
-          <div class="gear-title">Equipment</div>
-            <p class="items-title">Camera Body</p>
+          <div id="gear-title" class="gear-title"></div>
+            <p id="body" class="items-title"></p>
               <p class="item">Canon EOS Rebel T5i</p>
-            <p class="items-title">Zoom Lenses</p>
+            <p id="zoom" class="items-title"></p>
               <p class="item">Canon EF-S 10-18mm f/4.5-5.6 IS STM</p>
               <p class="item">Canon EF-S 18-55mm f/3.5-5.6 IS STM</p>
               <p class="item">Canon EF-S 55-250mm f/4-5.6 IS STM</p>
-            <p class="items-title">Prime Lenses</p>
+            <p id="prime" class="items-title"></p>
               <p class="item">Canon EF-S 24mm f/2.8 STM</p>
               <p class="item">Canon EF 50mm f/1.8 STM</p>
             <!-- <p class="items-title">Teleconverters</p>
@@ -85,99 +80,39 @@
               <p class="item">Kenko TELEPLUS HD DGX 2x</p> -->
         </div>
 
-        <div class="exhibits">
-          <div class="exhibits-title">Exhibitions</div>
-          <p class="exhibit"><a href="https://www.glasgowgalleryofphotography.com/exhibitors" target="_blank"><b>Seascapes</b></a>, <a href="https://www.glasgowgalleryofphotography.com/" target="_blank">Glasgow Photo Gallery</a>, Glasgow, Scotland, Aug/2020</p>
-          <p class="exhibit"><a href="https://www.blankwallgallery.com/exhibition-monochrome-2020/" target="_blank"><b>Monochrome</b></a>, <a href="http://www.blankwallgallery.com" target="_blank">Blank Wall Gallery</a>, Athens, Greece, Mar/2020</p>
-          <p class="exhibit"><a href="http://www.cipfestival.com/participating-artists-2019/" target="_blank"><b>Monochrome</b></a>, <a href="http://www.cipfestival.com/" target="_blank">2nd Cip Festival</a>, Chania, Greece, Aug/2019</p>
-          <p class="exhibit"><a href="http://www.blankwallgallery.com/exhibition-moments-color/" target="_blank"><b>Moments of Color</b></a>, <a href="http://www.blankwallgallery.com" target="_blank">Blank Wall Gallery</a>, Athens, Greece, Jun/2019</p>
-          <p class="exhibit"><a href="https://www.ph21gallery.com/shape-of-things-19/" target="_blank"><b>The Shape of Things</b></a>, <a href="https://www.ph21gallery.com/" target="_blank">PH21 Gallery</a>, Budapest, Hungary, May/2019</p>
-          <p class="exhibit"><a href="http://www.blankwallgallery.com/exhibition-street-photography-2019/" target="_blank"><b>Street Photography</b></a>, <a href="http://www.blankwallgallery.com" target="_blank">Blank Wall Gallery</a>, Athens, Greece, Apr/2019</p>
-          <p class="exhibit"><a href="http://www.blankwallgallery.com/exhibition-black-white-2019/" target="_blank"><b>Black & White</b></a>, <a href="http://www.blankwallgallery.com" target="_blank">Blank Wall Gallery</a>, Athens, Greece, Jan/2019</p>
+        <div id="exhibits" class="exhibits">
+          <div id="exhibits-title" class="exhibits-title"></div>
         </div>
 
         <div class="cities">
-          <div class="cities-title">Visited Countries and Cities</div>
+          <div id="cities-title" class="cities-title"></div>
           <div class="cities-column-1">
-            <p class="items-title"><img class="tiny_icon" src="map/icons/brazil.svg"/>Brazil</p>
-              <p class="item">Fernando de Noronha, PE</p>
-              <p class="item">Maceió, AL</p>
-              <p class="item">Florianópolis, SC</i>
-              <p class="item">Pocinhos do Rio Verde, MG</p>
-              <p class="item">Natal, RN</p>
-              <p class="item">Monte Alegre do Sul, SP</p>
-              <p class="item">Canela, RS</p>
-              <p class="item">Gramado, RS</p>
-              <p class="item">Foz do Iguaçu, PR</p>
-              <p class="item">Analândia, SP</p>
-              <p class="item">Monte Verde, MG</p>
-            <p class="items-title"><img class="tiny_icon" src="map/icons/argentina.svg"/>Argentina</p>
-              <p class="item">Puerto Iguazu</p>
-              <p class="item">El Calafate</p>
-              <p class="item">Buenos Aires</p>
-              <p class="item">Tigre</p>
-            <p class="items-title"><img class="tiny_icon" src="map/icons/paraguay.svg"/>Paraguay</p>
-              <p class="item">Ciudad del Este</p>
+            <div id="cities-br"><p id="cities-br-title" class="items-title"><img class="tiny_icon" src="map/icons/brazil.svg"/></p></div>
+            <div id="cities-ar"><p id="cities-ar-title" class="items-title"><img class="tiny_icon" src="map/icons/argentina.svg"/></p></div>
+            <div id="cities-py"><p id="cities-py-title" class="items-title"><img class="tiny_icon" src="map/icons/paraguay.svg"/></p></div>
           </div>
           <div class="cities-column-2">
-            <p class="items-title"><img class="tiny_icon" src="map/icons/united-states.svg"/>United States</p>
-              <p class="item">Chicago, IL</p>
-              <p class="item">Austin, TX</p>
-              <p class="item">San Antonio, TX</i>
-              <p class="item">San Bruno, CA</p>
-              <p class="item">San Francisco, CA</p>
-              <p class="item">Monterey (Big Sur), CA</p>
-              <p class="item">Oakhurst, CA</a>
-              <p class="item">Palo Alto, CA</a>
-              <p class="item">Mountain View, CA</a>
-            <p class="items-title"><img class="tiny_icon" src="map/icons/italy.svg"/>Italy</p>
-              <p class="item">Roma</p>
-              <p class="item">Salerno</p>
-              <p class="item">Pompei</p>
-              <p class="item">Positano</p>
-              <p class="item">Amalfi</p>
-            <p class="items-title"><img class="tiny_icon" src="map/icons/vatican.svg"/>Vatican</p>
-              <p class="item">Città del Vaticano</p>
+            <div id="cities-us"><p id="cities-us-title" class="items-title"><img class="tiny_icon" src="map/icons/united-states.svg"/></p></div>
+            <div id="cities-it"><p id="cities-it-title" class="items-title"><img class="tiny_icon" src="map/icons/italy.svg"/></p></div>
+            <div id="cities-va"><p id="cities-va-title" class="items-title"><img class="tiny_icon" src="map/icons/vatican.svg"/></p></div>
           </div>
           <div class="cities-column-3">
-            <p class="items-title"><img class="tiny_icon" src="map/icons/croatia.svg"/>Croatia</p>
-              <p class="item">Zagreb</p>
-              <p class="item">Zadar</p>
-              <p class="item">Šibenik</p>
-              <p class="item">Skradin</p>
-              <p class="item">Split</p>
-              <p class="item">Dubrovnik</p>
-            <p class="items-title"><img class="tiny_icon" src="map/icons/chile.svg"/>Chile</p>
-              <p class="item">Puerto Natales</p>
-              <p class="item">Punta Arenas</p>
-            <p class="items-title"><img class="tiny_icon" src="map/icons/uruguay.svg"/>Uruguay</p>
-              <p class="item">Punta del Este</p>
-              <p class="item">Colonia del Sacramento</p>
-              <p class="item">Montevideo</p>
+            <div id="cities-hr"><p id="cities-hr-title" class="items-title"><img class="tiny_icon" src="map/icons/croatia.svg"/></p></div>
+            <div id="cities-cl"><p id="cities-cl-title" class="items-title"><img class="tiny_icon" src="map/icons/chile.svg"/></p></div>
+            <div id="cities-uy"><p id="cities-uy-title" class="items-title"><img class="tiny_icon" src="map/icons/uruguay.svg"/></p></div>
           </div>
        </div>
 
        <div class="parks">
-          <div class="parks-title" style="">Visited National Parks</div>
+          <div id="parks-title" class="parks-title" style=""></div>
           <div class="parks-column-1">
-            <p class="items-title"><img class="tiny_icon" src="map/icons/brazil.svg"/>Brazil</p>
-              <p class="item">Aparados da Serra National Park</p>
-              <p class="item">Iguaçu National Park</i>
-              <p class="item">Fernando de Noronha Marine National Park</p>
-            <p class="items-title"><img class="tiny_icon" src="map/icons/argentina.svg"/>Argentina</p>
-              <p class="item">Iguazu National Park</p>
-              <p class="item">Los Glaciares National Park</p>
-            <p class="items-title"><img class="tiny_icon" src="map/icons/united-states.svg"/>United States</p>
-              <p class="item">Yosemite National Park</p>
-              <p class="item">Sequoia National Park</i>
+            <div id="parks-br"><p id="parks-br-title" class="items-title"><img class="tiny_icon" src="map/icons/brazil.svg"/></p></div>
+            <div id="parks-ar"><p id="parks-ar-title" class="items-title"><img class="tiny_icon" src="map/icons/argentina.svg"/></p></div>
+            <div id="parks-us"><p id="parks-us-title" class="items-title"><img class="tiny_icon" src="map/icons/united-states.svg"/></p></div>
           </div>
           <div class="parks-column-2">
-            <p class="items-title"><img class="tiny_icon" src="map/icons/croatia.svg"/>Croatia</p>
-              <p class="item">Plitvice Lakes National Park</p>
-              <p class="item">Krka National Park</p>
-            <p class="items-title"><img class="tiny_icon" src="map/icons/chile.svg"/>Chile</p>
-              <p class="item">Torres del Paine National Park</p>
-              <p class="item">Bernardo O'Higgins National Park</p>
+            <div id="parks-hr"><p id="parks-hr-title" class="items-title"><img class="tiny_icon" src="map/icons/croatia.svg"/></p></div>
+            <div id="parks-cl"><p id="parks-cl-title" class="items-title"><img class="tiny_icon" src="map/icons/chile.svg"/></p></div>
           </div>
           </div>
 
@@ -222,6 +157,99 @@
    }
 
    slideIndex = getIndex(minLoaded-1);
+
+   var userLang = navigator.language || navigator.userLanguage;
+   console.log ("User language is: " + userLang);
+
+   if (userLang != 'pt-BR') {
+     strings_dict = strings_dict_en;
+     about = about_en;
+     exhibits = exhibits_en;
+     countries = countries_en;
+     cities = cities_en;
+     parks = parks_en;
+   } else {
+     document.getElementById('load').setAttribute('style', 'width:300px;margin-left:-160px;')
+   }
+
+   document.getElementById('title').innerText = strings_dict['TITLE'];
+   document.getElementById('load').innerText = strings_dict['LOADING'];
+   document.getElementById('subtitle').innerText = strings_dict['SUBTITLE'];
+   document.getElementById('about-title').innerText = strings_dict['ABOUT'];
+   document.getElementById('about').innerHTML = about;
+   document.getElementById('gear-title').innerText = strings_dict['GEAR'];
+   document.getElementById('body').innerText = strings_dict['BODY'];
+   document.getElementById('zoom').innerText = strings_dict['ZOOM'];
+   document.getElementById('prime').innerText = strings_dict['PRIME'];
+
+   document.getElementById('exhibits-title').innerText = strings_dict['EXHIBITS'];
+
+   var exhibits_list = document.getElementById('exhibits');
+
+   for (var i = 0; i < exhibits.length; i++) {
+     var exhibit_item = document.createElement('A');
+     exhibit_item.setAttribute('href', exhibits[i][1]);
+     exhibit_item.setAttribute('target', '_blank');
+     var exhibit_name = document.createElement('B');
+     exhibit_name.innerText = exhibits[i][0];
+     exhibit_item.append(exhibit_name);
+     var gallery = document.createElement('A');
+     gallery.setAttribute('href', exhibits[i][3]);
+     gallery.setAttribute('target', '_blank');
+     gallery.innerText = exhibits[i][2];
+     var city = exhibits[i][4];
+     var country = exhibits[i][5];
+     var date = exhibits[i][6];
+     var list_item = document.createElement('P');
+     list_item.setAttribute('class', 'exhibit');
+     list_item.append(exhibit_item);
+     list_item.append(", ");
+     list_item.append(gallery);
+     list_item.append(", ");
+     list_item.append(city);
+     list_item.append(", ");
+     list_item.append(country);
+     list_item.append(", ");
+     list_item.append(date);
+     exhibits_list.append(list_item);
+   }
+
+
+   document.getElementById('cities-title').innerText = strings_dict['CITIES'];
+   document.getElementById('cities-br-title').append(countries['BR']);
+   document.getElementById('cities-ar-title').append(countries['AR']);
+   document.getElementById('cities-py-title').append(countries['PY']);
+   document.getElementById('cities-us-title').append(countries['US']);
+   document.getElementById('cities-it-title').append(countries['IT']);
+   document.getElementById('cities-va-title').append(countries['VA']);
+   document.getElementById('cities-hr-title').append(countries['HR']);
+   document.getElementById('cities-cl-title').append(countries['CL']);
+   document.getElementById('cities-uy-title').append(countries['UY']);
+
+   for (var i = 0; i < cities.length; i++) {
+     var list_item = document.createElement('P');
+     list_item.setAttribute('class', 'item');
+     list_item.innerText = cities[i][2];
+     var list_id = "cities-" + cities[i][1].toLowerCase();
+     document.getElementById(list_id).append(list_item);
+   }
+
+
+   document.getElementById('parks-title').innerText = strings_dict['PARKS'];
+   document.getElementById('parks-br-title').append(countries['BR']);
+   document.getElementById('parks-ar-title').append(countries['AR']);
+   document.getElementById('parks-us-title').append(countries['US']);
+   document.getElementById('parks-hr-title').append(countries['HR']);
+   document.getElementById('parks-cl-title').append(countries['CL']);
+
+   for (var i = 0; i < parks.length; i++) {
+     var list_item = document.createElement('P');
+     list_item.setAttribute('class', 'item');
+     list_item.innerText = parks[i][2];
+     var list_id = "parks-" + parks[i][1].toLowerCase();
+     document.getElementById(list_id).append(list_item);
+   }
+
 
    // Avoid show image before it being loaded
    function loadedImage() {
