@@ -38,13 +38,16 @@ function custom() {
   var label_satellite = document.createElement('LABEL');
   label_satellite.setAttribute('for', 'satellite-v9');
   label_satellite.innerText = strings_dict['MAP_LAYER_3'];
-  var menu = document.getElementById('menu');
-  menu.appendChild(input_streets);
-  menu.appendChild(label_streets);
-  menu.appendChild(input_outdoors);
-  menu.appendChild(label_outdoors);
-  menu.appendChild(input_satellite);
-  menu.appendChild(label_satellite);
+  layerList.appendChild(input_streets);
+  layerList.appendChild(label_streets);
+  layerList.appendChild(input_outdoors);
+  layerList.appendChild(label_outdoors);
+  layerList.appendChild(input_satellite);
+  layerList.appendChild(label_satellite);
+
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].onclick = switchLayer;
+  }
 
   var div_sw_photos = document.createElement("DIV");
   div_sw_photos.setAttribute("class", "unselected-photos");

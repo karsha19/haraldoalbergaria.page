@@ -49,10 +49,6 @@
     var layerList = document.getElementById('menu');
     var inputs = layerList.getElementsByTagName('input');
 
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].onclick = switchLayer;
-    }
-
     var initial_bbox = [];
     var current_bbox = [];
 
@@ -95,7 +91,6 @@
     });
 
     custom();
-
 
     // Functions
 
