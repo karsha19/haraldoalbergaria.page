@@ -80,4 +80,12 @@ var photos = [
   ["https://live.staticflickr.com/65535/52992513043_0612992af9_h.jpg"],
   ["https://live.staticflickr.com/65535/52962646085_d149afc474_h.jpg"],
   ["https://live.staticflickr.com/65535/52958579295_17d721dc5e_h.jpg"],
+  ["https://live.staticflickr.com/65535/53476602045_f1f44640eb_h.jpg"],
+  ["https://live.staticflickr.com/65535/53478028615_c38897dc53_h.jpg"],
+  ["https://live.staticflickr.com/65535/53476536148_35b63948a2_h.jpg"],
+  ["https://live.staticflickr.com/65535/53482782728_8992bd43ab_h.jpg"],
+  ["https://live.staticflickr.com/65535/53481990877_4e849a78c8_h.jpg"],
+  ["https://live.staticflickr.com/65535/53740329543_d10cf73c0f_h.jpg"],
+  ["https://live.staticflickr.com/65535/53742491270_e7eeac29be_h.jpg"],
+  ["https://live.staticflickr.com/65535/53763062287_a10dde1065_h.jpg"],
 ]
