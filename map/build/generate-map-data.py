@@ -296,9 +296,9 @@ if n_markers > 0:
 
 # check if there is file with the countries already mapped
 if os.path.exists("{}/countries.py".format(run_path)):
-    from countries import countries_dict
+    from countries import countries
 else:
-    countries_dict = dict()
+    countries = dict()
 
 
 # counts the number of new photos added to markers
@@ -376,11 +376,11 @@ for marker_info in coordinates:
 
     # add country to countries dictionary
     if country_code != '':
-        if country_code not in countries_dict:
-            countries_dict[country_code] = [country_name, 0 , 0]
+        if country_code not in countries:
+            countries[country_code] = [country_name, 0 , 0]
         else:
-            if countries_dict[country_code][0] == '':
-                countries_dict[country_code][0] = country_name
+            if countries[country_code][0] == '':
+                countries[country_code][0] = country_name
 
     # add country to locations dictionary
     if country_code not in locations_dict:
@@ -400,23 +400,23 @@ print('Finished!')
 
 # write countries dictionary to file
 countries_file = open("{}/countries.py".format(run_path), 'w')
-countries_file.write("countries_dict = {\n")
+countries_file.write("countries = {\n")
 
 i = 0
-for code in countries_dict:
+for code in countries:
     markers = locations_dict[code]
     n_markers = len(markers)
     n_photos = 0
     for marker in markers:
         n_photos += len(marker[1])
 
-    countries_dict[code][1] = n_markers
-    countries_dict[code][2] = n_photos
+    countries[code][1] = n_markers
+    countries[code][2] = n_photos
 
-    if i < len(countries_dict)-1:
-        countries_file.write("  \'{0}\': {1},\n".format(code, countries_dict[code]))
+    if i < len(countries)-1:
+        countries_file.write("  \'{0}\': {1},\n".format(code, countries[code]))
     else:
-        countries_file.write("  \'{0}\': {1}\n".format(code, countries_dict[code]))
+        countries_file.write("  \'{0}\': {1}\n".format(code, countries[code]))
     i += 1
 
 countries_file.write("}\n")

@@ -5,6 +5,7 @@ function custom() {
 
   if (userLang != 'pt-BR') {
     strings_dict = strings_dict_en;
+    countries_dict = countries_dict_en;
   }
 
   document.title = user_info["name"].concat(" | ").concat(strings_dict['MAP_EXHIBITS_TITLE']);
@@ -106,11 +107,11 @@ function custom() {
   }
 
   function addIcon(country_code, panel) {
-    var country_name = countries_bbox[country_code][0];
+    var country_name = countries_dict[country_code];
     var elem = document.createElement("IMG");
     elem.setAttribute("id", country_code);
     elem.setAttribute("class", "icon");
-    elem.setAttribute("src", getIconSrc(country_name));
+    elem.setAttribute("src", getIconSrc(countries_dict_en[country_code]));
     elem.setAttribute("title", country_name);
     elem.setAttribute("alt", country_name);
     var div_icon = document.createElement("DIV");

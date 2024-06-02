@@ -5,17 +5,18 @@ function custom() {
 
   if (userLang != 'pt-BR') {
     strings_dict = strings_dict_en;
+    countries_dict = countries_dict_en;
   }
 
   document.title = user_info["name"].concat(" | ").concat(strings_dict['MAP_TITLE']);
 
-  countries = []
+  countries_list = []
 
-  for (var country_code in countries_dict) {
-    countries.push([country_code,
-      countries_dict[country_code][0],
-      countries_dict[country_code][1],
-      countries_dict[country_code][2]])
+  for (var country_code in countries) {
+    countries_list.push([country_code,
+      countries[country_code][0],
+      countries[country_code][1],
+      countries[country_code][2]])
   }
 
   addFavicon();
@@ -77,7 +78,7 @@ function custom() {
   div_panel.setAttribute("id", "panel");
   div_panel.setAttribute("class", "countries-panel");
 
-  countries.sort(function(a,b) {
+  countries_list.sort(function(a,b) {
     var delta = (a[3]-b[3]);
     if (delta == 0) {
       return (a[2]-b[2]);
@@ -92,8 +93,8 @@ function custom() {
   separator.setAttribute('class', 'separator');
   div_panel.appendChild(separator);
 
-  for (var i = countries.length-1; i >= 0; i--) {
-    var country_code = countries[i][0];
+  for (var i = countries_list.length-1; i >= 0; i--) {
+    var country_code = countries_list[i][0];
       addIcon(country_code, div_panel);
   }
 
@@ -102,7 +103,7 @@ function custom() {
   document.getElementById('WW').addEventListener('click', function() { fitRegion('WW') });
   // document.getElementById('EU').addEventListener('click', function() { fitRegion('EU') });
 
-  countries.forEach(addListener);
+  countries_list.forEach(addListener);
 
   // Functions
 
@@ -115,11 +116,12 @@ function custom() {
   }
 
   function addIcon(country_code, panel) {
-    var country_name = countries_bbox[country_code][0];
+    var country_name = countries_dict[country_code];
+    console.log(country_name);
     var elem = document.createElement("IMG");
     elem.setAttribute("id", country_code);
     elem.setAttribute("class", "icon");
-    elem.setAttribute("src", getIconSrc(country_name));
+    elem.setAttribute("src", getIconSrc(countries_dict_en[country_code]));
     elem.setAttribute("title", country_name);
     elem.setAttribute("alt", country_name);
     var div_icon = document.createElement("DIV");
