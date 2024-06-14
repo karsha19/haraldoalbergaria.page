@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO_DIR="/home/pi/github/hpfilho.github.io"
+REPO_DIR="/home/pi/github/haraldoalbergaria.page"
 MAP_DIR="map"
 BUILD_DIR="build"
 LOC_FILE="locations.py"
@@ -18,7 +18,6 @@ if [[ -f $REPO_DIR/$MAP_DIR/$LOC_FILE && -f $REPO_DIR/$MAP_DIR/$CTY_FILE ]];
     git add $MAP_DIR/$CTY_FILE
     git commit -m "[auto] Updated Flickr Photos Map"
     git push origin master
-    git push fork master
     rm map/locations.py
     rm map/countries.py
     rm map/user.py
