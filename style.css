@@ -76,7 +76,7 @@ p.subtitle {
   cursor: pointer;
 }
 
-.icon-getty {
+.icon-blurb {
   width: 68px;
   height: 68px;
   padding: 2px;
@@ -482,7 +482,7 @@ img.tiny_icon {
     margin-bottom: 60px;
   }
 
-  .icon-getty {
+  .icon-blurb {
     display: none;
   }
 
