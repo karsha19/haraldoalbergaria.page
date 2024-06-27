@@ -88,4 +88,6 @@ var photos = [
   ["https://live.staticflickr.com/65535/53740329543_d10cf73c0f_h.jpg"],
   ["https://live.staticflickr.com/65535/53742491270_e7eeac29be_h.jpg"],
   ["https://live.staticflickr.com/65535/53763062287_a10dde1065_h.jpg"],
+  ["https://live.staticflickr.com/65535/53811338425_7c6b6260ef_h.jpg"],
+  ["https://live.staticflickr.com/65535/53810818824_2737fc5017_h.jpg"]
 ]
