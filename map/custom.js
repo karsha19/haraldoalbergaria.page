@@ -143,14 +143,13 @@ function custom() {
 
     var fitMarkers = true;
     var bboxes = [];
-    var padding = 0;
+    var padding = 50;
 
     if (fitMarkers && region != 'WW') {
         bboxes = getCountryMarkersBbox(region);
-        padding = 150;
+        padding += 100;
     } else {
         bboxes = countries_bbox[region][1];
-        padding = 50;
     }
 
     var west = bboxes[0];
@@ -168,9 +167,9 @@ function custom() {
 
   function getCountryMarkersBbox(country_code) {
 
-    var west = getOffsetLongitude(180, 0);
+    var west = 180;
     var south = 90;
-    var east = getOffsetLongitude(-180, 0);
+    var east = -180;
     var north = -90;
 
     var country_markers = locations_dict[country_code];
@@ -178,11 +177,11 @@ function custom() {
 
     for (var i = 0; i < country_markers.length; i++) {
 
-      if (getOffsetLongitude(country_markers[i][0][0], 0) < west) {
-        west = getOffsetLongitude(country_markers[i][0][0], 0);
+      if (country_markers[i][0][0] < west) {
+        west = country_markers[i][0][0];
       }
-      if (getOffsetLongitude(country_markers[i][0][0], 0) > east) {
-        east = getOffsetLongitude(country_markers[i][0][0], 0);
+      if (country_markers[i][0][0] > east) {
+        east = country_markers[i][0][0];
       }
       if (country_markers[i][0][1] < south) {
         south = country_markers[i][0][1];
@@ -197,17 +196,6 @@ function custom() {
 
     return country_bbox;
 
-  }
-
-  function getOffsetLongitude(value, offset) {
-    var new_value = value - offset;
-    if (Math.abs(new_value) > 180) {
-      new_value = 360 - Math.abs(new_value);
-      if (offset < 0) {
-        new_value = -1*new_value;
-      }
-    }
-    return new_value;
   }
 
   function openExhibits() {
