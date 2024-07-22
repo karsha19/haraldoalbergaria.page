@@ -1,11 +1,11 @@
 countries = {
   'CL': ['Chile', 78, 198],
-  'US': ['United States of America', 50, 132],
-  'AR': ['Argentina', 54, 124],
   'PY': ['Paraguay', 1, 1],
+  'AR': ['Argentina', 54, 124],
   'VA': ['Vatican City', 22, 31],
-  'UY': ['Uruguay', 24, 48],
+  'UY': ['Uruguay', 26, 50],
   'IT': ['Italy', 77, 126],
+  'HR': ['Croatia', 184, 243],
   'BR': ['Brazil', 177, 395],
-  'HR': ['Croatia', 184, 243]
+  'US': ['United States of America', 50, 132]
 }
