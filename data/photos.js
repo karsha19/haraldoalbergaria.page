@@ -89,5 +89,11 @@ var photos = [
   ["https://live.staticflickr.com/65535/53742491270_e7eeac29be_h.jpg"],
   ["https://live.staticflickr.com/65535/53763062287_a10dde1065_h.jpg"],
   ["https://live.staticflickr.com/65535/53811338425_7c6b6260ef_h.jpg"],
-  ["https://live.staticflickr.com/65535/53810818824_2737fc5017_h.jpg"]
+  ["https://live.staticflickr.com/65535/53810818824_2737fc5017_h.jpg"],
+  ["https://live.staticflickr.com/65535/53901337221_a5255044c0_h.jpg"],
+  ["https://live.staticflickr.com/65535/53899305923_d7735e6021_h.jpg"],
+  ["https://live.staticflickr.com/65535/53878371884_169c324d7f_h.jpg"],
+  ["https://live.staticflickr.com/65535/53856234309_194927ef3c_h.jpg"],
+  ["https://live.staticflickr.com/65535/53838940558_c30a110475_h.jpg"],
+  ["https://live.staticflickr.com/65535/53825678641_8fec574e2a_h.jpg"]
 ]
