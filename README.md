@@ -1,4 +1,4 @@
-# My "Photos & Trips" Website
+# My "Photos & Trips" Website :)
 
 This is the code repository for my [website](https://haraldoalbergaria.page/).
 
